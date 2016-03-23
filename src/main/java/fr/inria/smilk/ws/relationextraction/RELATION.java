@@ -6,7 +6,7 @@
 package fr.inria.smilk.ws.relationextraction;
 
 import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+
 import org.apache.jena.rdf.model.impl.PropertyImpl;
 
 /**
@@ -24,10 +24,12 @@ public class RELATION extends Object {
     }
 
    
-  
+  static final String ntext = "text";
+        public static Property text = null;
   
     
     // Define the property labels and objects
+    
     
      static final String nhasSentences = "hasSentences";
         public static Property hasSentences = null;
@@ -71,6 +73,7 @@ public class RELATION extends Object {
     static {
         try {
 
+              text = new PropertyImpl(uri, ntext);
             // Instantiate the properties
             hasSentences = new PropertyImpl(uri, nhasSentences);
             hasTriples = new PropertyImpl(uri, nhasTriples);

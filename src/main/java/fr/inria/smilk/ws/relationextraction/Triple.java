@@ -5,6 +5,7 @@
  */
 package fr.inria.smilk.ws.relationextraction;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -29,11 +30,11 @@ public class Triple {
         this.objectToken = objectToken;
     }
 
-    public List<Token> getRelationTokens() {
+    public LinkedList<Token> getRelationTokens() {
         return relationTokens;
     }
 
-    public void setRelationTokens(List<Token> relationTokens) {
+    public void setRelationTokens(LinkedList<Token> relationTokens) {
         this.relationTokens = relationTokens;
     }
 
@@ -102,7 +103,7 @@ public class Triple {
     
    private Token subjectToken;
    private Token objectToken;
-   private List<Token> relationTokens;
+   private LinkedList<Token> relationTokens;
     
     
 }

@@ -5,7 +5,6 @@
  */
 package fr.inria.smilk.ws.relationextraction;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -58,7 +57,7 @@ public class Main {
 //         System.out.println(sentenceId);
         String outputFile = "/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/Relations_test.rdf";
         ///user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus.xml
-        Model model = constructRDFModel("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/minidataset.xml");
+        Model model = constructRDFModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/minidataset.xml");
         writeToFile(model, outputFile);
         analyseTriples(outputFile);
         // Renco renco = new Renco();

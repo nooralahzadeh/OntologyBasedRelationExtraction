@@ -32,5 +32,14 @@ public class AnnotatedDocument {
     
     private int id;
     private List<Sentence> Sentences;
+    private String text;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
     
 }

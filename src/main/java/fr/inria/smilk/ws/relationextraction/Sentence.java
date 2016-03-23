@@ -5,6 +5,8 @@
  */
 package fr.inria.smilk.ws.relationextraction;
 
+import java.util.List;
+
 /**
  *
  * @author fnoorala
@@ -29,5 +31,14 @@ public class Sentence {
         this.text = text;
     }
     private String text;
+    private List<Triple> triples;
+
+    public List<Triple> getTriples() {
+        return triples;
+    }
+
+    public void setTriples(List<Triple> triples) {
+        this.triples = triples;
+    }
     
 }
