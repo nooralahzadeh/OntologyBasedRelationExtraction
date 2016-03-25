@@ -58,7 +58,7 @@ public class Main {
         String outputFile = "/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/ExtractedRelations_v02.rdf";
         ///user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus.xml
         // read all the data from the folder and bulid the model  non_annotated_cosmetic_corpus
-        OntModel model = constructOwlModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/test");
+        OntModel model = constructOwlModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus");
         writeOntModelToFile(model, outputFile);
         analyseTriples(outputFile);
         // Renco renco = new Renco();

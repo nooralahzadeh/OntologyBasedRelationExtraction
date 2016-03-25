@@ -49,7 +49,7 @@ public class Renco {
 
              sortie = response.getEntity(String.class);
 
-        System.out.println(sortie);
+       // System.out.println(sortie);
             
 
         } catch (Exception e) {
