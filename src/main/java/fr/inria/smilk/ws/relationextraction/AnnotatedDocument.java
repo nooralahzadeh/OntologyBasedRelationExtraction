@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class AnnotatedDocument {
 
+    
+
     public int getId() {
         return id;
     }
@@ -41,5 +43,7 @@ public class AnnotatedDocument {
     public void setText(String text) {
         this.text = text;
     }
+    
+    
     
 }

@@ -5,6 +5,7 @@
  */
 package fr.inria.smilk.ws.relationextraction;
 
+import fr.inria.smilk.ws.relationextraction.util.ListFilesUtil;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -37,6 +38,7 @@ import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.util.FileManager;
@@ -53,12 +55,11 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 
-//         String sentenceId= String.format("%04d", (int)19);
-//         System.out.println(sentenceId);
-        String outputFile = "/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/Relations_test.rdf";
+        String outputFile = "/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/ExtractedRelations_v02.rdf";
         ///user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus.xml
-        Model model = constructRDFModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/minidataset.xml");
-        writeToFile(model, outputFile);
+        // read all the data from the folder and bulid the model
+        OntModel model = constructOwlModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus");
+        writeOntModelToFile(model, outputFile);
         analyseTriples(outputFile);
         // Renco renco = new Renco();
         // List<Triple> triples = extractDOMparser(renco.rencoByWebService(" Pour son cinquième anniversaire , La Vie en Rose , édition estivale du parfum de Viktor & Rolf ( L' Oréal Luxe ) créée par Olivier Polge ( IFF ) , s' offre une nouvelle composition autour de trois fleurs : la rose , le jasmin sambac et l' orchidée Heights "));
@@ -144,7 +145,9 @@ public class Main {
 
             NodeList nSentenceList = doc.getElementsByTagName("sentence");
 
+            //walk on the sentence node
             for (int sent_temp = 0; sent_temp < nSentenceList.getLength(); sent_temp++) {
+
                 Sentence sentence = new Sentence();
                 sentence.setId(sent_temp);
                 //sentence.setText(input);
@@ -153,127 +156,135 @@ public class Main {
 
                 List<Triple> triples = new ArrayList<>();
 
+                //walk on the tokens node
                 for (int token_temp = 0; token_temp < nTokensList.getLength(); token_temp++) {
 
                     Node nTokenNode = nTokensList.item(token_temp);
 
                     NodeList nList = nTokenNode.getChildNodes();
 
-                    for (int temp = 0; temp < nList.getLength(); temp++) {
+                    int x = 0, y = 0;
+                    while (x < nList.getLength()) {
 
-                        Node nNode = nList.item(temp);
+                        Node xNode = nList.item(x);
 
-                        NodeList tokennList = nNode.getChildNodes();
+                        if (xNode instanceof Element) {
 
-                        int x = 0, y = 0;
-                        while (x < tokennList.getLength()) {
+                            Element xElement = (Element) xNode;
 
-                            Node xNode = tokennList.item(x);
+                            // if (xElement.hasAttribute("type") || xElement.getAttribute("pos").equalsIgnoreCase("NPP")) {
+                            if (xElement.hasAttribute("type")) {
 
-                            if (xNode instanceof Element) {
+                                Triple triple = new Triple();
+                                Token subjectToken = new Token();
 
-                                Element xElement = (Element) xNode;
+                                subjectToken.setId(Integer.parseInt(xElement.getAttribute("id")));
+                                subjectToken.setForm(xElement.getAttribute("form"));
+                                subjectToken.setStart(Integer.parseInt(xElement.getAttribute("start")));
+                                subjectToken.setEnd(Integer.parseInt(xElement.getAttribute("end")));
+                                subjectToken.setLema(xElement.getAttribute("lemma"));
+                                subjectToken.setPos(xElement.getAttribute("pos"));
+                                subjectToken.setDepRel(xElement.getAttribute("depRel"));
+                                subjectToken.setHead(Integer.parseInt(xElement.getAttribute("head")));
+                                subjectToken.setType(xElement.getAttribute("type"));
+                                triple.setSubjectToken(subjectToken);
 
-                                if (xElement.hasAttribute("type") || xElement.getAttribute("pos").equalsIgnoreCase("NPP")) {
+                                String subtype = (xElement.getAttribute("type") != null && !xElement.getAttribute("type").equalsIgnoreCase("")) ? xElement.getAttribute("type") : xElement.getAttribute("pos");
 
-                                    Triple triple = new Triple();
-                                    Token subjectToken = new Token();
+                                triple.setSubjectType(subtype);
+                                triple.setSubject(xElement.getAttribute("form"));
 
-                                    subjectToken.setId(Integer.parseInt(xElement.getAttribute("id")));
-                                    subjectToken.setForm(xElement.getAttribute("form"));
-                                    subjectToken.setStart(Integer.parseInt(xElement.getAttribute("start")));
-                                    subjectToken.setEnd(Integer.parseInt(xElement.getAttribute("end")));
-                                    subjectToken.setLema(xElement.getAttribute("lemma"));
-                                    subjectToken.setPos(xElement.getAttribute("pos"));
-                                    subjectToken.setDepRel(xElement.getAttribute("depRel"));
-                                    subjectToken.setHead(Integer.parseInt(xElement.getAttribute("head")));
-                                    subjectToken.setType(xElement.getAttribute("type"));
-                                    triple.setSubjectToken(subjectToken);
+                                y = x + 1;
+                                LinkedList<Token> relationTokens = new LinkedList<>();
+                                for (int j = y; j < nList.getLength(); j++) {
 
-                                    String subtype = (xElement.getAttribute("type") != null && !xElement.getAttribute("type").equalsIgnoreCase("")) ? xElement.getAttribute("type") : xElement.getAttribute("pos");
+                                    Node yNode = nList.item(j);
+                                    if (yNode instanceof Element) {
+                                        Element yElement = (Element) yNode;
+                                        // if (!yElement.hasAttribute("type") && !yElement.getAttribute("pos").equalsIgnoreCase("NPP")) {
+                                        if (!yElement.hasAttribute("type")) {
+                                            Token relationToken = new Token();
+                                            relationToken.setId(Integer.parseInt(yElement.getAttribute("id")));
+                                            relationToken.setForm(yElement.getAttribute("form"));
+                                            relationToken.setStart(Integer.parseInt(yElement.getAttribute("start")));
+                                            relationToken.setEnd(Integer.parseInt(yElement.getAttribute("end")));
+                                            relationToken.setLema(yElement.getAttribute("lemma"));
+                                            relationToken.setPos(yElement.getAttribute("pos"));
+                                            relationToken.setDepRel(yElement.getAttribute("depRel"));
+                                            relationToken.setHead(Integer.parseInt(yElement.getAttribute("head")));
 
-                                    triple.setSubjectType(subtype);
-                                    triple.setSubject(xElement.getAttribute("form"));
+                                            relationTokens.add(relationToken);
 
-                                    y = x + 1;
-                                    LinkedList<Token> relationTokens = new LinkedList<>();
-                                    for (int j = y; j < tokennList.getLength(); j++) {
+                                        } else {
 
-                                        Node yNode = tokennList.item(j);
-                                        if (yNode instanceof Element) {
-                                            Element yElement = (Element) yNode;
-                                            if (!yElement.hasAttribute("type") && !yElement.getAttribute("pos").equalsIgnoreCase("NPP")) {
+                                            Token objectyToken = new Token();
 
-                                                Token relationToken = new Token();
-                                                relationToken.setId(Integer.parseInt(yElement.getAttribute("id")));
-                                                relationToken.setForm(yElement.getAttribute("form"));
-                                                relationToken.setStart(Integer.parseInt(yElement.getAttribute("start")));
-                                                relationToken.setEnd(Integer.parseInt(yElement.getAttribute("end")));
-                                                relationToken.setLema(yElement.getAttribute("lemma"));
-                                                relationToken.setPos(yElement.getAttribute("pos"));
-                                                relationToken.setDepRel(yElement.getAttribute("depRel"));
-                                                relationToken.setHead(Integer.parseInt(yElement.getAttribute("head")));
+                                            objectyToken.setId(Integer.parseInt(yElement.getAttribute("id")));
+                                            objectyToken.setForm(yElement.getAttribute("form"));
+                                            objectyToken.setStart(Integer.parseInt(yElement.getAttribute("start")));
+                                            objectyToken.setEnd(Integer.parseInt(yElement.getAttribute("end")));
+                                            objectyToken.setLema(yElement.getAttribute("lemma"));
+                                            objectyToken.setPos(yElement.getAttribute("pos"));
+                                            objectyToken.setDepRel(yElement.getAttribute("depRel"));
+                                            objectyToken.setHead(Integer.parseInt(yElement.getAttribute("head")));
+                                            objectyToken.setType(yElement.getAttribute("type"));
+                                            triple.setObjectToken(objectyToken);
 
-                                                relationTokens.add(relationToken);
+                                            String objtype = (yElement.getAttribute("type") != null && !yElement.getAttribute("type").equalsIgnoreCase("")) ? yElement.getAttribute("type") : yElement.getAttribute("pos");
 
-                                            } else {
+                                            triple.setObjectType(objtype);
+                                            triple.setObject(yElement.getAttribute("form"));
 
-                                                Token objectyToken = new Token();
+                                            triple.setRelationTokens(relationTokens);
 
-                                                objectyToken.setId(Integer.parseInt(yElement.getAttribute("id")));
-                                                objectyToken.setForm(yElement.getAttribute("form"));
-                                                objectyToken.setStart(Integer.parseInt(yElement.getAttribute("start")));
-                                                objectyToken.setEnd(Integer.parseInt(yElement.getAttribute("end")));
-                                                objectyToken.setLema(yElement.getAttribute("lemma"));
-                                                objectyToken.setPos(yElement.getAttribute("pos"));
-                                                objectyToken.setDepRel(yElement.getAttribute("depRel"));
-                                                objectyToken.setHead(Integer.parseInt(yElement.getAttribute("head")));
-                                                objectyToken.setType(yElement.getAttribute("type"));
-                                                triple.setObjectToken(objectyToken);
+                                            StringBuilder relation = new StringBuilder();
 
-                                                String objtype = (yElement.getAttribute("type") != null && !yElement.getAttribute("type").equalsIgnoreCase("")) ? yElement.getAttribute("type") : yElement.getAttribute("pos");
-
-                                                triple.setObjectType(objtype);
-                                                triple.setObject(yElement.getAttribute("form"));
-
-                                                triple.setRelationTokens(relationTokens);
-
-                                                StringBuilder relation = new StringBuilder();
-
-                                                for (Token t : relationTokens) {
-                                                    relation.append(t.getForm()).append(" ");
-                                                }
-
-                                                triple.setRelation(relation.toString().trim());
-                                                relationTokens = new LinkedList<>();
-
-                                                y = j;
-                                                break;
+                                            for (Token t : relationTokens) {
+                                                relation.append(t.getForm()).append(" ");
                                             }
+
+                                            triple.setRelation(relation.toString().trim());
+                                            relationTokens = new LinkedList<>();
+
+                                            y = j;
+                                            break;
+                                        }
+                                    }
+
+                                }
+
+                                if (triple.getObjectToken() != null && triple.getRelationTokens() != null) {
+
+                                    //filter out the triple which has relation size more that 6 
+                                    if (triple.getRelationTokens().size() < 6) {
+                                        //filter out the triple which has length of relation surface form  is less than 2 
+                                        if (triple.getRelationTokens().size() > 2) {
+                                            triples.add(triple);
+                                        } else if (triple.getRelationTokens().size() > 0 && triple.getRelationTokens().get(0).getForm().length() > 1) {
+                                            triples.add(triple);
                                         }
 
                                     }
 
-                                    if (triple.getObjectToken() != null && triple.getRelationTokens() != null) {
-                                        triples.add(triple);
-                                    }
-
-                                    x = y;
-
-                                } else {
-
-                                    x += 1;
                                 }
+
+                                x = y;
 
                             } else {
 
                                 x += 1;
-
                             }
+
+                        } else {
+
+                            x += 1;
+
                         }
+
                     }
 
                 }
+
                 sentence.setTriples(triples);
                 sentences.add(sentence);
 
@@ -292,6 +303,7 @@ public class Main {
         return sentences;
     }
 
+    // has a problem however we dont use it
     public static Model constructModel(AnnotatedDocument annoatedDocument) {
         // create an empty model
         Model m = ModelFactory.createDefaultModel();
@@ -307,39 +319,36 @@ public class Main {
             Resource docResource = m.createResource(document);
 
             m.addLiteral(docResource, RELATION.text, ResourceFactory.createTypedLiteral(text));
-            
+
             List<Sentence> sentences = annoatedDocument.getSentences();
 
             Seq sentenceList = m.createSeq();
-            
+
             //list of sentence
-            
             for (int i = 0; i < sentences.size(); i++) {
 
                 String sentenceId = String.format("%04d", (int) i);
 
                 String sentence = RELATION.getURI() + "sent_" + docId + "-" + sentenceId;
                 Resource sentResource = m.createResource(sentence);
-                
+
                 sentenceList.add(i + 1, sentResource);
-                
 
                 Seq tripleList = m.createSeq();
                 List<Triple> triples = sentences.get(i).getTriples();
-                
-            //list of triples
-                
+
+                //list of triples
                 for (int j = 0; j < triples.size(); j++) {
                     String tripleId = String.format("%04d", (int) i);
                     Triple t = triples.get(j);
 
-                    String triple = RELATION.getURI() + "t" +  docId + "-" + sentenceId+"-"+tripleId;
+                    String triple = RELATION.getURI() + "t" + docId + "-" + sentenceId + "-" + tripleId;
                     Resource tripleResource = m.createResource(triple);
 
-                    String subject = RELATION.getURI() + "S_" +   docId + "-" + sentenceId+"-"+tripleId;
+                    String subject = RELATION.getURI() + "S_" + docId + "-" + sentenceId + "-" + tripleId;
                     Resource subjectResource = m.createResource(subject);
 
-                    String object = RELATION.getURI() + "O_" +  docId + "-" + sentenceId+"-"+tripleId;
+                    String object = RELATION.getURI() + "O_" + docId + "-" + sentenceId + "-" + tripleId;
                     Resource objectResource = m.createResource(object);
 
                     //make first statement
@@ -373,13 +382,11 @@ public class Main {
                     m.addLiteral(objectResource, RELATION.start, ResourceFactory.createTypedLiteral(t.getObjectToken().getStart()));
                     m.addLiteral(objectResource, RELATION.end, ResourceFactory.createTypedLiteral(t.getObjectToken().getEnd()));
 
-                
-                    
                     Seq tokenList = m.createSeq();
-                    
+
                     for (int ii = 0; ii < t.getRelationTokens().size(); ii++) {
 
-                        String reltoken = RELATION.getURI() + "token_" + "_" +   docId + "-" + sentenceId+"-"+tripleId+"-"+ii;
+                        String reltoken = RELATION.getURI() + "token_" + "_" + docId + "-" + sentenceId + "-" + tripleId + "-" + ii;
                         Resource reltokenResource = m.createResource(reltoken);
                         Token token = t.getRelationTokens().get(i);
 
@@ -398,12 +405,12 @@ public class Main {
                         tokenList.add(ii + 1, reltokenResource);
 
                     }
-                    
+
                     m.add(tripleResource, RELATION.hasRelation, tokenList);
-                    tripleList.add(j+1,tripleResource);
+                    tripleList.add(j + 1, tripleResource);
                 }
-                
-                 m.add(sentResource, RELATION.hasTriples, tripleList);
+
+                m.add(sentResource, RELATION.hasTriples, tripleList);
             }
             m.add(docResource, RELATION.hasSentences, sentenceList);
 
@@ -435,6 +442,12 @@ public class Main {
                 annotatedDocument.setId(i);
                 annotatedDocument.setSentences(sentences);
 
+//                for(Sentence s: annotatedDocument.getSentences()){
+//                    System.err.println(s.getId()+": "+s.getText());
+//                    for(Triple t : s.getTriples()){
+//                        System.out.println("---> "+ t.toString());
+//                    }
+//                }
                 Model subModel = constructModel(annotatedDocument);
                 mainModel = mainModel.union(subModel);
 
@@ -449,32 +462,35 @@ public class Main {
         return mainModel;
 
     }
-    public static Model constructOwlModelFromFile(String file) {
-         OntModel mainModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-        
-        Renco renco = new Renco();
 
+    public static OntModel constructOwlModelFromFile(String folder) {
+        OntModel mainModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+
+        Renco renco = new Renco();
+       
         try {
 
-            BufferedReader fileReader = null;
+           
 
-            String line = "";
             //Create the file reader
-            fileReader = new BufferedReader(new FileReader(file));
+           
             AnnotatedDocument annotatedDocument = new AnnotatedDocument();
+            List<String> lines = readCorpus(folder);
             int i = 0;
-            while ((line = fileReader.readLine()) != null) {
+            for (String line : lines) {
                 i++;
+                if (line.trim().length() > 1) {
+                 
+                    List<Sentence> sentences = extractDOMparser(renco.rencoByWebService(line));
 
-                List<Sentence> sentences = extractDOMparser(renco.rencoByWebService(line));
-                annotatedDocument.setText(line);
-                annotatedDocument.setId(i);
-                annotatedDocument.setSentences(sentences);
+                    annotatedDocument.setText(line);
+                    annotatedDocument.setId(i);
+                    annotatedDocument.setSentences(sentences);
 
-                OntModel ontModel = constructOntology(annotatedDocument);
-                OntModel subModel= constructOntModel(ontModel, annotatedDocument);
-                mainModel.add(subModel);
-
+                    OntModel ontModel = constructOntology(annotatedDocument);
+                    OntModel subModel = constructOntModel(ontModel, annotatedDocument);
+                    mainModel.add(subModel);
+                }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -513,6 +529,7 @@ public class Main {
             }
         }
     }
+
     public static void writeOntModelToFile(OntModel model, String fileName) {
 
         FileWriter out = null;
@@ -542,51 +559,94 @@ public class Main {
     }
 
     public static void analyseTriples(String inputFileName) {
-        // create an empty model
-        Model model = ModelFactory.createDefaultModel();
-
-        // use the FileManager to find the input file
-        InputStream in = FileManager.get().open(inputFileName);
-        if (in == null) {
-            throw new IllegalArgumentException(
-                    "File: " + inputFileName + " not found");
+        try {
+            // create an empty model
+            Model model = ModelFactory.createDefaultModel();
+            
+            // use the FileManager to find the input file
+            InputStream in = FileManager.get().open(inputFileName);
+            if (in == null) {
+                throw new IllegalArgumentException(
+                        "File: " + inputFileName + " not found");
+            }
+            
+            // read the RDF/XML file
+            model.read(in, "RDF/XML");
+            
+            String queryString = "";
+            
+            queryString = "" + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n "
+                    + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                    + "PREFIX smlk: <http://ns.inria.fr/smilk/elements/1.0/>\n"
+                    + "SELECT    ?sentence ?triple ?subjectform ?subjectPos ?subject_Type  ?objectForm ?objectPos ?object_Type (group_concat(distinct ?tokenform ; separator = \" \") AS ?relation)   (group_concat(distinct ?tokenPosTag ; separator = \" \") AS ?relationposTags)  \n"
+                    + "WHERE "
+                    + " {\n"
+                    + "SELECT   ?sentence ?triple ?subjectform ?subjectPos ?subject_Type  ?objectForm ?objectPos ?object_Type   ?tokenOffset ?tokenform  ?tokenPosTag \n"
+                    + "WHERE"
+                    + " {\n"
+                    + " ?document smlk:hasSentence ?sentence. \n"
+                    + " ?sentence smlk:hasTriple ?triple. \n"
+                    + " ?triple smlk:hasRelation ?token.\n"
+                    + " ?token smlk:form ?tokenform. \n"
+                    + " ?token smlk:pos ?tokenPosTag. \n"
+                    + " ?token smlk:id ?tokenOffset. \n"
+                    //                + " OPTIONAL{?token smlk:hasNext ?nextToken."
+                    //                + " ?nextToken smlk:form ?nexttokenform."
+                    //                + " ?nextToken smlk:pos ?nexttokePosTag } \n"
+                    + " ?triple smlk:hasSubject ?subject. \n"
+                    + " ?subject smlk:type ?subjectType.\n"
+                    + " ?subject smlk:pos ?subjectPos.\n"
+                    + " ?subject smlk:form ?subjectform.\n"
+                    + " BIND(IF ((?subjectType=\"<NaN>\"), \"-\", ?subjectType ) as ?subject_Type)"
+                    + " ?triple smlk:hasObject ?object.\n"
+                    + " ?object smlk:type ?objectType.\n"
+                    + " ?object smlk:pos ?objectPos.\n"
+                    + " ?object smlk:form ?objectForm.\n"
+                    + " BIND(IF ((?objectType=\"<NaN>\" ) , \"-\", ?objectType ) as ?object_Type)"
+                    + "}\n"
+                    // + "GROUP BY ?subjectform ?subject ?subject_Type   ?objectForm ?object_Type  ?subjectPos  ?objectPos  "
+                    + "ORDER BY DESC(?triple) ASC(?tokenOffset)"
+                    + ""
+                    + "}\n"
+                    + "GROUP BY  ?sentence ?triple  ?subjectform ?subject_Type   ?objectForm ?object_Type  ?subjectPos  ?objectPos  "
+                    + "";
+            
+            Query query = QueryFactory.create(queryString);
+            QueryExecution qexec = QueryExecutionFactory.create(query, model);
+            ResultSet results = qexec.execSelect();
+           // ResultSetFormatter.out(System.out, results, query);
+            
+            
+            //convert sparql query results into string array
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            PrintStream ps = new PrintStream(baos);
+            ResultSetFormatter.out(ps, results, query);
+            String queryOutput = new String(baos.toByteArray(), "UTF-8");
+            
+            System.out.println(queryOutput);
+//        try {
+//
+//
+//                    
+//                    for (; results.hasNext();) {
+//                        QuerySolution soln = results.nextSolution();
+//                        
+//                        RDFNode rel = soln.get("rel");
+//                        Resource r = (Resource) rel;
+// 
+//                        RDFNode cnt = soln.get("cnt");
+//                        Literal rcnt = (Literal) cnt;
+//                 
+//                        System.out.println(r.getLocalName() + " " + rcnt.getInt());
+// 
+//                    }
+//            
+//                } finally {
+//                    qexec.close();
+//                }
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        // read the RDF/XML file
-        model.read(in, "RDF/XML");
-
-        String queryString = "";
-
-        queryString = "" + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n "
-                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "PREFIX smlk: <http://ns.inria.fr/smilk/elements/1.0/>\n"
-                + "SELECT    ?subjectform ?subjectPos ?subject_Type  ?objectForm ?objectPos ?object_Type (group_concat(distinct ?form ; separator = \" \") AS ?tokens)   (group_concat(distinct ?tokePosTags ; separator = \" \") AS ?posTags)  \n"
-                + "WHERE"
-                + " {\n"
-                + " ?triple smlk:hasRelation ?relationTokens.\n"
-                + " ?triple smlk:hasSubject ?subject. \n"
-                + " ?relationTokens rdfs:member ?token. \n"
-                + " ?token smlk:form ?form. \n"
-                + " ?token smlk:pos ?tokePosTags. \n"
-                + " ?triple smlk:hasObject ?object.\n"
-                + " ?object smlk:type ?objectType.\n"
-                + " ?subject smlk:type ?subjectType.\n"
-                + " ?object smlk:pos ?objectPos.\n"
-                + " ?subject smlk:pos ?subjectPos.\n"
-                + " ?object smlk:form ?objectForm.\n"
-                + " ?subject smlk:form ?subjectform.\n"
-                + " BIND(IF ((?subjectType=\"<NaN>\"|| ?subjectType=\"not_identified\"), \"-\", ?subjectType ) as ?subject_Type)"
-                + " BIND(IF ((?objectType=\"<NaN>\" || ?objectType=\"not_identified\") , \"-\", ?objectType ) as ?object_Type)"
-                + "}\n"
-                + "GROUP BY ?subjectform ?subject ?subject_Type   ?objectForm ?object_Type  ?subjectPos  ?objectPos  "
-                //+ "ORDER BY DESC(?subject_Type)  DESC(?object_Type) "
-                + "";
-
-        Query query = QueryFactory.create(queryString);
-        QueryExecution qexec = QueryExecutionFactory.create(query, model);
-        ResultSet results = qexec.execSelect();
-        ResultSetFormatter.out(System.out, results, query);
-
     }
 
     public static void query(Model model) {
@@ -594,7 +654,7 @@ public class Main {
         queryString = "" + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n "
                 + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX smlk: <http://ns.inria.fr/smilk/elements/1.0/>\n"
-                + "SELECT   ?subjectPos ?subject_Type  ?objectPos ?object_Type (group_concat(distinct ?form ; separator = \" \") AS ?tokens)   (group_concat(distinct ?tokePosTags ; separator = \" \") AS ?posTags)  \n"
+                + "SELECT distinct  ?subjectPos ?subject_Type  ?objectPos ?object_Type (group_concat(distinct ?form ; separator = \" \") AS ?tokens)   (group_concat(distinct ?tokePosTags ; separator = \" \") AS ?posTags)  \n"
                 + "WHERE"
                 + " {\n"
                 + " ?triple smlk:hasRelation ?relationTokens.\n"
@@ -620,277 +680,287 @@ public class Main {
         ResultSetFormatter.out(System.out, results, query);
 
     }
-    
+
     public static OntModel constructOntology(AnnotatedDocument annoatedDocument) {
-         
+
         // create an empty model
         OntModel ontoModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-        String NS = RELATION.getURI() + "#";
-        
+        String NS = RELATION.getURI();
+
         ontoModel.setNsPrefix("smlk", RELATION.getURI());
         ontoModel.setNsPrefix("xs", "http://www.w3.org/2001/XMLSchema#");
-        
-       try{  
-           
-        // Classes
-        OntClass annotatedDocument = ontoModel.createClass( NS + "Document" ); 
-        OntClass annotatedSentence = ontoModel.createClass( NS + "Sentence" ); 
-        OntClass triple = ontoModel.createClass( NS + "Triple" ); 
-        
-        OntClass subject = ontoModel.createClass( NS + "Subject" ); 
-        OntClass object = ontoModel.createClass( NS + "Object" );
-        
-        OntClass token = ontoModel.createClass( NS + "Token" );
-        
-        // Relations
-        ObjectProperty hasSentence = ontoModel.createObjectProperty( NS + "hasSentence" );
-        hasSentence.addDomain( annotatedDocument );
-        hasSentence.addRange( annotatedSentence );
-        hasSentence.addLabel( "has sentence", "en" );
-        
-        
-        ObjectProperty hasTriple = ontoModel.createObjectProperty( NS + "hasTriple" );
-        hasTriple.addDomain( annotatedSentence );
-        hasTriple.addRange( triple );
-        hasTriple.addLabel( "has triple", "en" );
-        
-        
-        ObjectProperty hasSubject = ontoModel.createObjectProperty( NS + "hasSubject" );
-        hasSubject.addDomain( triple );
-        hasSubject.addRange( subject );
-        hasSubject.addLabel( "has triple", "en" );
-        
-        
-        ObjectProperty hasObject = ontoModel.createObjectProperty( NS + "hasObject" );
-        hasObject.addDomain( triple );
-        hasObject.addRange( object );
-        hasObject.addLabel( "has triple", "en" );
-        
-        ObjectProperty hasRelation = ontoModel.createObjectProperty( NS + "hasRelation" );
-        hasRelation.addDomain( triple );
-        hasRelation.addRange( token );
-        hasRelation.addLabel( "has relation", "en" );
-        
-       
-        ObjectProperty hasNext = ontoModel.createObjectProperty( NS + "hasNext" );
-        ObjectProperty hasPrevious = ontoModel.createObjectProperty( NS + "hasPrevious" );
-        hasNext.addDomain( token );
-        hasNext.addRange( token );
-        hasNext.addLabel( "has next", "en" );
-        hasPrevious.addLabel("has previous", "en" );
-        hasNext.addInverseOf(hasPrevious);
 
-        // Data properties
-        DatatypeProperty text = ontoModel.createDatatypeProperty( NS + "text" );
-        text.addDomain( ontoModel.getOntClass( NS + "Document" ) );
-        text.addRange( XSD.xstring );
-        
-        DatatypeProperty form = ontoModel.createDatatypeProperty( NS + "form" );
-        form.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        form.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        form.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        form.addRange( XSD.xstring );
-      
-        
-        DatatypeProperty lemma = ontoModel.createDatatypeProperty( NS + "lemma" );
-        lemma.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        lemma.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        lemma.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        lemma.addRange( XSD.xstring );
-             
-        
-        DatatypeProperty type = ontoModel.createDatatypeProperty( NS + "type" );
-        type.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        type.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        type.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        type.addRange( XSD.xstring );
-        
-        DatatypeProperty depRel = ontoModel.createDatatypeProperty( NS + "depRel" );
-        depRel.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        depRel.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        depRel.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        depRel.addRange( XSD.xstring );
-        
-        
-        DatatypeProperty pos = ontoModel.createDatatypeProperty( NS + "pos" );
-        pos.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        pos.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        pos.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        pos.addRange( XSD.xstring );
-          
-        DatatypeProperty id = ontoModel.createDatatypeProperty( NS + "id" );
-        id.addDomain( ontoModel.getOntClass( NS + "Document" ) );
-        id.addDomain( ontoModel.getOntClass( NS + "Sentence" ) );
-        id.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        id.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        id.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        id.addRange( XSD.integer );
-            
-        DatatypeProperty start = ontoModel.createDatatypeProperty( NS + "start" );
-        start.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        start.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        start.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        start.addRange( XSD.integer );
-        
-        DatatypeProperty end = ontoModel.createDatatypeProperty( NS + "end" );
-        end.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        end.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        end.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        start.addRange( XSD.integer );
-        
-        DatatypeProperty head = ontoModel.createDatatypeProperty( NS + "head" );
-        head.addDomain( ontoModel.getOntClass( NS + "Subject" ) );
-        head.addDomain( ontoModel.getOntClass( NS + "Object" ) );
-        head.addDomain( ontoModel.getOntClass( NS + "Token" ) );
-        head.addRange( XSD.integer );
-        
-         
+        try {
+
+            // Classes
+            OntClass annotatedDocument = ontoModel.createClass(NS + "Document");
+            OntClass annotatedSentence = ontoModel.createClass(NS + "Sentence");
+            OntClass triple = ontoModel.createClass(NS + "Triple");
+
+            OntClass subject = ontoModel.createClass(NS + "Subject");
+            OntClass object = ontoModel.createClass(NS + "Object");
+
+            OntClass token = ontoModel.createClass(NS + "Token");
+
+            // Relations
+            ObjectProperty hasSentence = ontoModel.createObjectProperty(NS + "hasSentence");
+            hasSentence.addDomain(annotatedDocument);
+            hasSentence.addRange(annotatedSentence);
+            hasSentence.addLabel("has sentence", "en");
+
+            ObjectProperty hasTriple = ontoModel.createObjectProperty(NS + "hasTriple");
+            hasTriple.addDomain(annotatedSentence);
+            hasTriple.addRange(triple);
+            hasTriple.addLabel("has triple", "en");
+
+            ObjectProperty hasSubject = ontoModel.createObjectProperty(NS + "hasSubject");
+            hasSubject.addDomain(triple);
+            hasSubject.addRange(subject);
+            hasSubject.addLabel("has triple", "en");
+
+            ObjectProperty hasObject = ontoModel.createObjectProperty(NS + "hasObject");
+            hasObject.addDomain(triple);
+            hasObject.addRange(object);
+            hasObject.addLabel("has triple", "en");
+
+            ObjectProperty hasRelation = ontoModel.createObjectProperty(NS + "hasRelation");
+            hasRelation.addDomain(triple);
+            hasRelation.addRange(token);
+            hasRelation.addLabel("has relation", "en");
+
+            ObjectProperty hasNext = ontoModel.createObjectProperty(NS + "hasNext");
+            ObjectProperty hasPrevious = ontoModel.createObjectProperty(NS + "hasPrevious");
+            hasNext.addDomain(token);
+            hasNext.addRange(token);
+            hasNext.addLabel("has next", "en");
+            hasPrevious.addLabel("has previous", "en");
+            hasNext.addInverseOf(hasPrevious);
+
+            // Data properties
+            DatatypeProperty text = ontoModel.createDatatypeProperty(NS + "text");
+            text.addDomain(ontoModel.getOntClass(NS + "Document"));
+            text.addRange(XSD.xstring);
+
+            DatatypeProperty form = ontoModel.createDatatypeProperty(NS + "form");
+            form.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            form.addDomain(ontoModel.getOntClass(NS + "Object"));
+            form.addDomain(ontoModel.getOntClass(NS + "Token"));
+            form.addRange(XSD.xstring);
+
+            DatatypeProperty lemma = ontoModel.createDatatypeProperty(NS + "lemma");
+            lemma.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            lemma.addDomain(ontoModel.getOntClass(NS + "Object"));
+
+            lemma.addRange(XSD.xstring);
+
+            DatatypeProperty type = ontoModel.createDatatypeProperty(NS + "type");
+            type.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            type.addDomain(ontoModel.getOntClass(NS + "Object"));
+            type.addDomain(ontoModel.getOntClass(NS + "Token"));
+            type.addRange(XSD.xstring);
+
+            DatatypeProperty depRel = ontoModel.createDatatypeProperty(NS + "depRel");
+            depRel.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            depRel.addDomain(ontoModel.getOntClass(NS + "Object"));
+            depRel.addDomain(ontoModel.getOntClass(NS + "Token"));
+            depRel.addRange(XSD.xstring);
+
+            DatatypeProperty pos = ontoModel.createDatatypeProperty(NS + "pos");
+            pos.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            pos.addDomain(ontoModel.getOntClass(NS + "Object"));
+            pos.addDomain(ontoModel.getOntClass(NS + "Token"));
+            pos.addRange(XSD.xstring);
+
+            DatatypeProperty id = ontoModel.createDatatypeProperty(NS + "id");
+            id.addDomain(ontoModel.getOntClass(NS + "Document"));
+            id.addDomain(ontoModel.getOntClass(NS + "Sentence"));
+            id.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            id.addDomain(ontoModel.getOntClass(NS + "Object"));
+            id.addDomain(ontoModel.getOntClass(NS + "Token"));
+            id.addRange(XSD.integer);
+
+            DatatypeProperty start = ontoModel.createDatatypeProperty(NS + "start");
+            start.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            start.addDomain(ontoModel.getOntClass(NS + "Object"));
+            start.addDomain(ontoModel.getOntClass(NS + "Token"));
+            start.addRange(XSD.integer);
+
+            DatatypeProperty end = ontoModel.createDatatypeProperty(NS + "end");
+            end.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            end.addDomain(ontoModel.getOntClass(NS + "Object"));
+            end.addDomain(ontoModel.getOntClass(NS + "Token"));
+            start.addRange(XSD.integer);
+
+            DatatypeProperty head = ontoModel.createDatatypeProperty(NS + "head");
+            head.addDomain(ontoModel.getOntClass(NS + "Subject"));
+            head.addDomain(ontoModel.getOntClass(NS + "Object"));
+            head.addDomain(ontoModel.getOntClass(NS + "Token"));
+            head.addRange(XSD.integer);
 
         } catch (Exception e) {
-            
+
             System.out.println("Failed: " + e);
         }
-       
+
         return ontoModel;
-         
+
     }
-    
-    public static OntModel constructOntModel(OntModel ontModel,AnnotatedDocument annoatedDocument){
-        
-         String NS = RELATION.getURI() + "#";
-         
-        ObjectProperty hasSentence = ontModel.getObjectProperty( NS + "hasSentence");      
-        ObjectProperty hasTriple =  ontModel.getObjectProperty( NS + "hasTriple" );     
-        ObjectProperty hasSubject =  ontModel.getObjectProperty( NS + "hasSubject" );
-        ObjectProperty hasObject =  ontModel.getObjectProperty( NS + "hasObject" );  
-        ObjectProperty hasRelation =  ontModel.getObjectProperty( NS + "hasRelation" );
-        ObjectProperty hasNext =  ontModel.getObjectProperty( NS + "hasNext" );
-        
-        DatatypeProperty text =  ontModel.getDatatypeProperty(NS + "text" );
-        DatatypeProperty head =  ontModel.getDatatypeProperty(NS + "head" );
-        DatatypeProperty lemma =  ontModel.getDatatypeProperty(NS + "lemma" );
-        DatatypeProperty depRel =  ontModel.getDatatypeProperty(NS + "depRel" );
-        DatatypeProperty start =  ontModel.getDatatypeProperty(NS + "start" );
-        DatatypeProperty end =  ontModel.getDatatypeProperty(NS + "end" );
-        DatatypeProperty type =  ontModel.getDatatypeProperty(NS + "type" );
-        DatatypeProperty pos =  ontModel.getDatatypeProperty(NS + "pos" );
-        DatatypeProperty id =  ontModel.getDatatypeProperty(NS + "id" );
-        DatatypeProperty form =  ontModel.getDatatypeProperty(NS + "form" );
-    
-         //add document individual to ontModel
-       
-        String docId = String.format("%05d", (int) annoatedDocument.getId());   
-        Individual document=ontModel.createIndividual(NS+"doc_" + docId, ontModel.getOntClass(NS + "Document"));
-        
-        document.addProperty( text, ontModel.createTypedLiteral( annoatedDocument.getText() ) )
-        .addProperty(id, ontModel.createTypedLiteral( docId ) );
-        
-        
-        
+
+    public static OntModel constructOntModel(OntModel ontModel, AnnotatedDocument annoatedDocument) {
+
+        String NS = RELATION.getURI();
+
+        ObjectProperty hasSentence = ontModel.getObjectProperty(NS + "hasSentence");
+        ObjectProperty hasTriple = ontModel.getObjectProperty(NS + "hasTriple");
+        ObjectProperty hasSubject = ontModel.getObjectProperty(NS + "hasSubject");
+        ObjectProperty hasObject = ontModel.getObjectProperty(NS + "hasObject");
+        ObjectProperty hasRelation = ontModel.getObjectProperty(NS + "hasRelation");
+        ObjectProperty hasNext = ontModel.getObjectProperty(NS + "hasNext");
+
+        DatatypeProperty text = ontModel.getDatatypeProperty(NS + "text");
+        DatatypeProperty head = ontModel.getDatatypeProperty(NS + "head");
+        DatatypeProperty lemma = ontModel.getDatatypeProperty(NS + "lemma");
+        DatatypeProperty depRel = ontModel.getDatatypeProperty(NS + "depRel");
+        DatatypeProperty start = ontModel.getDatatypeProperty(NS + "start");
+        DatatypeProperty end = ontModel.getDatatypeProperty(NS + "end");
+        DatatypeProperty type = ontModel.getDatatypeProperty(NS + "type");
+        DatatypeProperty pos = ontModel.getDatatypeProperty(NS + "pos");
+        DatatypeProperty id = ontModel.getDatatypeProperty(NS + "id");
+        DatatypeProperty form = ontModel.getDatatypeProperty(NS + "form");
+
+        //add document individual to ontModel
+        String docId = String.format("%05d", (int) annoatedDocument.getId());
+        Individual document = ontModel.createIndividual(NS + "doc_" + docId, ontModel.getOntClass(NS + "Document"));
+
+        document.addProperty(text, ontModel.createTypedLiteral(annoatedDocument.getText()))
+                .addProperty(id, ontModel.createTypedLiteral(docId));
+
         //add sentence individual to ontmodel
-        List<Sentence> sentences=annoatedDocument.getSentences();
-        for(int i=0; i<sentences.size();i++){
-            Sentence sentence=sentences.get(i);
+        List<Sentence> sentences = annoatedDocument.getSentences();
+        for (int i = 0; i < sentences.size(); i++) {
+            Sentence sentence = sentences.get(i);
             String sentId = String.format("%05d", (int) sentence.getId());
-            Individual sent=ontModel.createIndividual(NS+"doc_" + docId+"-"+sentId, ontModel.getOntClass(NS + "Sentence"));
-            sent.addProperty(id, ontModel.createTypedLiteral( sentId ));
-           
+            Individual sent = ontModel.createIndividual(NS + "doc_" + docId + "-" + sentId, ontModel.getOntClass(NS + "Sentence"));
+            sent.addProperty(id, ontModel.createTypedLiteral(sentId));
+
             document.addProperty(hasSentence, sent);
-            
-            List<Triple> triples=sentence.getTriples();
-            for(int j=0;j<triples.size();j++){
+
+            List<Triple> triples = sentence.getTriples();
+            for (int j = 0; j < triples.size(); j++) {
                 String tripleId = String.format("%04d", (int) j);
                 Triple t = triples.get(j);
-                
-                Individual triple=ontModel.createIndividual(NS+"t_" + docId+"-"+sentId+"-"+tripleId, ontModel.getOntClass(NS + "Triple"));
+
+                Individual triple = ontModel.createIndividual(NS + "t_" + docId + "-" + sentId + "-" + tripleId, ontModel.getOntClass(NS + "Triple"));
                 //assign triple to sentence
                 sent.addProperty(hasTriple, triple);
-                 
-                Individual subject=ontModel.createIndividual(NS+"s_" + docId+"-"+sentId+"-"+tripleId, ontModel.getOntClass(NS + "Subject"));
-                
+
+                Individual subject = ontModel.createIndividual(NS + "s_" + docId + "-" + sentId + "-" + tripleId, ontModel.getOntClass(NS + "Subject"));
+
                 //assign subject to triple
                 triple.addProperty(hasSubject, subject);
                 //define the data properties of subject
-                subject.addProperty(lemma, ontModel.createTypedLiteral( t.getSubjectToken().getLema() ));
-                subject.addProperty(form, ontModel.createTypedLiteral( t.getSubjectToken().getForm()));
-                subject.addProperty(type, ontModel.createTypedLiteral( t.getSubjectToken().getType()));
-                subject.addProperty(pos, ontModel.createTypedLiteral( t.getSubjectToken().getPos()));
-                subject.addProperty(head, ontModel.createTypedLiteral( t.getSubjectToken().getHead()));
-                subject.addProperty(start, ontModel.createTypedLiteral( t.getSubjectToken().getStart()));
-                subject.addProperty(end, ontModel.createTypedLiteral( t.getSubjectToken().getEnd()));
-                subject.addProperty(depRel,ontModel.createTypedLiteral( t.getSubjectToken().getDepRel()));
-                subject.addProperty(id,ontModel.createTypedLiteral( t.getSubjectToken().getId()));
-                
-                
-                
-                Individual object=ontModel.createIndividual(NS+"o_" + docId+"-"+sentId+"-"+tripleId, ontModel.getOntClass(NS + "Object"));
+                subject.addProperty(lemma, ontModel.createTypedLiteral(t.getSubjectToken().getLema()));
+                subject.addProperty(form, ontModel.createTypedLiteral(t.getSubjectToken().getForm()));
+                subject.addProperty(type, ontModel.createTypedLiteral(t.getSubjectToken().getType()));
+                subject.addProperty(pos, ontModel.createTypedLiteral(t.getSubjectToken().getPos()));
+                subject.addProperty(head, ontModel.createTypedLiteral(t.getSubjectToken().getHead()));
+                subject.addProperty(start, ontModel.createTypedLiteral(t.getSubjectToken().getStart()));
+                subject.addProperty(end, ontModel.createTypedLiteral(t.getSubjectToken().getEnd()));
+                subject.addProperty(depRel, ontModel.createTypedLiteral(t.getSubjectToken().getDepRel()));
+                subject.addProperty(id, ontModel.createTypedLiteral(t.getSubjectToken().getId()));
+
+                Individual object = ontModel.createIndividual(NS + "o_" + docId + "-" + sentId + "-" + tripleId, ontModel.getOntClass(NS + "Object"));
                 //assign object to triple
                 triple.addProperty(hasObject, object);
                 //define the data properties of object
-                object.addProperty(lemma, ontModel.createTypedLiteral( t.getObjectToken().getLema() ));
-                object.addProperty(form, ontModel.createTypedLiteral( t.getObjectToken().getForm()));
-                object.addProperty(type, ontModel.createTypedLiteral( t.getObjectToken().getType()));
-                object.addProperty(pos, ontModel.createTypedLiteral( t.getObjectToken().getPos()));
-                object.addProperty(head, ontModel.createTypedLiteral( t.getObjectToken().getHead()));
-                object.addProperty(start, ontModel.createTypedLiteral( t.getObjectToken().getStart()));
-                object.addProperty(end, ontModel.createTypedLiteral( t.getObjectToken().getEnd()));
-                object.addProperty(depRel,ontModel.createTypedLiteral( t.getObjectToken().getDepRel()));
-                object.addProperty(id,ontModel.createTypedLiteral( t.getObjectToken().getId()));
-                
-                LinkedList<Token> tokens=t.getRelationTokens();
-                
-                for(int k=0;k<tokens.size();k++){
- 
+                object.addProperty(lemma, ontModel.createTypedLiteral(t.getObjectToken().getLema()));
+                object.addProperty(form, ontModel.createTypedLiteral(t.getObjectToken().getForm()));
+                object.addProperty(type, ontModel.createTypedLiteral(t.getObjectToken().getType()));
+                object.addProperty(pos, ontModel.createTypedLiteral(t.getObjectToken().getPos()));
+                object.addProperty(head, ontModel.createTypedLiteral(t.getObjectToken().getHead()));
+                object.addProperty(start, ontModel.createTypedLiteral(t.getObjectToken().getStart()));
+                object.addProperty(end, ontModel.createTypedLiteral(t.getObjectToken().getEnd()));
+                object.addProperty(depRel, ontModel.createTypedLiteral(t.getObjectToken().getDepRel()));
+                object.addProperty(id, ontModel.createTypedLiteral(t.getObjectToken().getId()));
+
+                LinkedList<Token> tokens = t.getRelationTokens();
+
+                for (int k = 0; k < tokens.size(); k++) {
+
                     String tokenId = String.format("%04d", (int) k);
-                    Token token = tokens.get(k); 
-                    Individual tok=ontModel.createIndividual(NS+"tok_" + docId+"-"+sentId+"-"+tripleId+"-"+tokenId, ontModel.getOntClass(NS + "Token"));
-                  
+                    Token token = tokens.get(k);
+                    Individual tok = ontModel.createIndividual(NS + "tok_" + docId + "-" + sentId + "-" + tripleId + "-" + tokenId, ontModel.getOntClass(NS + "Token"));
+
                     //assign relation token to triple
                     triple.addProperty(hasRelation, tok);
-                   
+
                     //define the data properties of  relation token
-                    tok.addProperty(lemma, ontModel.createTypedLiteral( token.getLema() ));
-                    tok.addProperty(form, ontModel.createTypedLiteral( token.getForm()));
-                    tok.addProperty(type, ontModel.createTypedLiteral( token.getType()));
-                    tok.addProperty(pos, ontModel.createTypedLiteral( token.getPos()));
-                    tok.addProperty(head, ontModel.createTypedLiteral( token.getHead()));
-                    tok.addProperty(start, ontModel.createTypedLiteral( token.getStart()));
-                    tok.addProperty(end, ontModel.createTypedLiteral( token.getEnd()));
-                    tok.addProperty(depRel,ontModel.createTypedLiteral( token.getDepRel()));
-                    tok.addProperty(id,ontModel.createTypedLiteral(token.getId()));
-                  
+                    tok.addProperty(lemma, ontModel.createTypedLiteral(token.getLema()));
+                    tok.addProperty(form, ontModel.createTypedLiteral(token.getForm()));
+
+                    tok.addProperty(pos, ontModel.createTypedLiteral(token.getPos()));
+                    tok.addProperty(head, ontModel.createTypedLiteral(token.getHead()));
+                    tok.addProperty(start, ontModel.createTypedLiteral(token.getStart()));
+                    tok.addProperty(end, ontModel.createTypedLiteral(token.getEnd()));
+                    tok.addProperty(depRel, ontModel.createTypedLiteral(token.getDepRel()));
+                    tok.addProperty(id, ontModel.createTypedLiteral(token.getId()));
+
                 }
-                
-                if(tokens.size()>1){
-                    
-                    int x=0;
-                    int y=x+1;
-                    while(x<tokens.size() && y<tokens.size()){
-                         String tokenId = String.format("%04d", (int) x);
-                         String nextTokenId = String.format("%04d", (int) y);
-                         Individual tok=ontModel.getIndividual(NS+"tok_" + docId+"-"+sentId+"-"+tripleId+"-"+tokenId);
-                         Individual nextTok=ontModel.getIndividual(NS+"tok_" + docId+"-"+sentId+"-"+tripleId+"-"+nextTokenId);
-                         tok.addProperty(hasNext, nextTok);
-                         x++;
-                         y=x+1;                      
-                        
+
+                if (tokens.size() > 1) {
+
+                    int x = 0;
+                    int y = x + 1;
+                    while (x < tokens.size() && y < tokens.size()) {
+                        String tokenId = String.format("%04d", (int) x);
+                        String nextTokenId = String.format("%04d", (int) y);
+                        Individual tok = ontModel.getIndividual(NS + "tok_" + docId + "-" + sentId + "-" + tripleId + "-" + tokenId);
+                        Individual nextTok = ontModel.getIndividual(NS + "tok_" + docId + "-" + sentId + "-" + tripleId + "-" + nextTokenId);
+                        tok.addProperty(hasNext, nextTok);
+                        x++;
+                        y = x + 1;
+
                     }
-                    
+
                 }
-                
-                
-                
+
             }
-            
-            
-            
-            
-            
+
         }
-        
-        
+
         return ontModel;
-        
+
     }
-    
+
+    public static List<String> readCorpus(String folderName) {
+        ListFilesUtil listFileUtil = new ListFilesUtil();
+        listFileUtil.listFilesFromDirector(folderName);
+        List<String> files = listFileUtil.files;
+        List<String> lines = new LinkedList<>();
+        for (String file : files) {
+
+            try {
+                BufferedReader fileReader = null;
+
+                String line = "";
+                //Create the file reader
+                fileReader = new BufferedReader(new FileReader(folderName+"/"+file));
+                while ((line = fileReader.readLine()) != null) {
+                    if (line.trim().length() > 1) {
+                       
+                        lines.add(line);
+                    }
+
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return lines;
+    }
+
 }

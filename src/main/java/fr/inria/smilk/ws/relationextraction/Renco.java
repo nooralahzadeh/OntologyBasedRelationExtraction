@@ -43,7 +43,7 @@ public class Renco {
             Client client = Client.create();
             String url="https://demo-innovation-projets-groupe.viseo.net/renco-rest/rest/renco/getRenco";
             String tempURL="https://172.42.1.166/renco-rest/rest/renco/getRenco";
-            WebResource webResource = client.resource(url);
+            WebResource webResource = client.resource(tempURL);
 
             ClientResponse response = webResource.type("text/plain").post(ClientResponse.class, in);
 
@@ -53,7 +53,7 @@ public class Renco {
             
 
         } catch (Exception e) {
-
+            System.out.println("ERROR in the text: " + in);
             e.printStackTrace();
 
         }
