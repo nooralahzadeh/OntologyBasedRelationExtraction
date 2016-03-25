@@ -465,30 +465,28 @@ public class Main {
 
     public static OntModel constructOwlModelFromFile(String folder) {
         OntModel mainModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-
+        OntModel ontModel = constructOntology();
         Renco renco = new Renco();
        
         try {
-
-           
-
-            //Create the file reader
+    //Create the file reader
            
             AnnotatedDocument annotatedDocument = new AnnotatedDocument();
             List<String> lines = readCorpus(folder);
             int i = 0;
+            
             for (String line : lines) {
                 i++;
                 if (line.trim().length() > 1) {
                  
                     List<Sentence> sentences = extractDOMparser(renco.rencoByWebService(line));
-
+                    
                     annotatedDocument.setText(line);
                     annotatedDocument.setId(i);
                     annotatedDocument.setSentences(sentences);
-
-                    OntModel ontModel = constructOntology(annotatedDocument);
                     OntModel subModel = constructOntModel(ontModel, annotatedDocument);
+                    
+                    System.out.println("document "+ i +" of "+ lines.size() +" is added to ontology ");
                     mainModel.add(subModel);
                 }
             }
@@ -681,7 +679,7 @@ public class Main {
 
     }
 
-    public static OntModel constructOntology(AnnotatedDocument annoatedDocument) {
+    public static OntModel constructOntology() {
 
         // create an empty model
         OntModel ontoModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
@@ -937,8 +935,11 @@ public class Main {
         listFileUtil.listFilesFromDirector(folderName);
         List<String> files = listFileUtil.files;
         List<String> lines = new LinkedList<>();
+       
+        int i=0;
         for (String file : files) {
-
+            System.out.println("Processing file #: "+ i + " of:  "+ files.size());
+            i++;
             try {
                 BufferedReader fileReader = null;
 
