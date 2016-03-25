@@ -57,8 +57,8 @@ public class Main {
 
         String outputFile = "/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/ExtractedRelations_v02.rdf";
         ///user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus.xml
-        // read all the data from the folder and bulid the model
-        OntModel model = constructOwlModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus");
+        // read all the data from the folder and bulid the model  non_annotated_cosmetic_corpus
+        OntModel model = constructOwlModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/test");
         writeOntModelToFile(model, outputFile);
         analyseTriples(outputFile);
         // Renco renco = new Renco();
@@ -473,6 +473,8 @@ public class Main {
            
             AnnotatedDocument annotatedDocument = new AnnotatedDocument();
             List<String> lines = readCorpus(folder);
+            System.out.println("Size of data: "+lines.size());
+            
             int i = 0;
             
             for (String line : lines) {
@@ -487,6 +489,7 @@ public class Main {
                     OntModel subModel = constructOntModel(ontModel, annotatedDocument);
                     
                     System.out.println("document "+ i +" of "+ lines.size() +" is added to ontology ");
+                    
                     mainModel.add(subModel);
                 }
             }
@@ -938,17 +941,19 @@ public class Main {
        
         int i=0;
         for (String file : files) {
-            System.out.println("Processing file #: "+ i + " of:  "+ files.size());
+            
+            //System.out.println("Processing file #: "+ i + " of:  "+ files.size());
             i++;
+            
             try {
+                
                 BufferedReader fileReader = null;
 
                 String line = "";
                 //Create the file reader
                 fileReader = new BufferedReader(new FileReader(folderName+"/"+file));
                 while ((line = fileReader.readLine()) != null) {
-                    if (line.trim().length() > 1) {
-                       
+                    if (line.trim().length() > 1) { 
                         lines.add(line);
                     }
 
