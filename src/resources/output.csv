@@ -1,0 +1,856 @@
+subjectform	subjectPos	subject_Type	objectForm	objectPos	object_Type	relation	relationposTags
+Franco-Am�ricain	product	Christian Dior	brand	a travaill� pour les marques	V VPP P DET NC	
+VIP pour Elle	product	Playboy	brand	de	P	
+Dior Addict Lip Glow	product	Sephora	product	, Baume l�vres R�v�lateur de couleur	PONCT NPP P NC	
+Volcanic	brand	Atomic	brand	et	CC	
+The Emotion & Beauty Lab	division	Pr Jean Cotte	not_identified	et élève du	CC V P	
+Luxe	division	Cosm�tique active	division	et	CC	
+Atelier végétal dYves Rocher	not_identified	Kiehl's	brand	ou des boutiques	CC DET NC	
+Scandal Eyes	product	Rimmel	brand	de	P	
+Liftactiv Sérum 10	product	Vichy	brand	de	P	
+L'Or�al	not_identified	Henkel	not_identified	, Diadermine chez	PONCT NPP P	
+Lingerie	product	Peau	brand	de	P	
+BB cream	product	Clarins	brand	de	P	
+Asiatique	product	Am�ricaine	product	ou une	CC DET	
+Sabiluc	division	Hei Poa	division	( Naturelle dArgan ,	PONCT ADJ NPP	
+Dahlia Noir Eau	product	Parfums Givenchy	brand	de parfum	P NC	
+Sylvie	product	Verreries Brosse	product	de France , flacon :	P NPP PONCT NC	
+Oréal Paris	not_identified	Haute expertise	range	enrichit sa gamme capillaire	V DET NC ADJ	
+Fuel for Life	not_identified	Eau for Him	product	l'	DET	
+Nocib�	brand	Carrefour	brand	et	CC	
+Faubourg-Saint-Antoine	not_identified	Bastille � Paris	not_identified	pr�s de la	V P DET	
+Orange sanguine	product	Atelier Cologne	brand	d'	P	
+Autre marque	brand	L'Or�al Luxe	group	de	P	
+DD Cream	product	DermEden	brand	de	P	
+Marionnaud	not_identified	Hutchison	not_identified	( �galement propri�t� d'	PONCT NC P	
+Showroompriv�	not_identified	Vente-priv�e	not_identified	et	CC	
+Perfect Mousse	product	Schwarzkopf	brand	de	P	
+Responsable laboratoire capillaires	division	L'Or�al	not_identified	chez	P	
+Coty	not_identified	L'Or�al	not_identified	, Essie chez	PONCT NPP P	
+Cologne	not_identified	Herboriste	not_identified	de l'	P DET	
+Nivea	not_identified	MDD Casino	not_identified	mais aussi la	CC ADV DET	
+Nestl� Waters	not_identified	ITM Entreprise Alimentaire International	group	avant de rejoindre	P VINF	
+efforts	not_identified	La Vie est Belle	product	sur	P	
+Eucerin	brand	Hansaplast	brand	et	CC	
+Cologne	not_identified	Herboriste	not_identified	de l'	P DET	
+Poudre Transparente	product	Sisley	brand	de	P	
+Unilever	brand	L'Or�al	brand	et	CC	
+Grand Public	division	Produits professionnels	division	, Cosm�tique active et	PONCT NPP CC	
+Auriège	brand	Ariège	not_identified	tire son origine de l'	V DET NC P	
+Mia2	product	Clarisonic	brand	de	P	
+Nivea Sun	product	Sun Fluid	product	et le	CC DET	
+Lingerie	product	Peau	brand	de	P	
+Clé	brand	Peau	group	de	P	
+Oréal luxe	not_identified	Rouge Volupté shine	product	lance en février	V P NC	
+Alliance Boots	not_identified	Walgreen Company	group	et de	CC P	
+Chambre Noire	brand	Olfactive Studio	group	d'	P	
+La Vie est belle	product	Lanc�me	not_identified	chez	P	
+Buy Paris Duty Free	not_identified	Soci�t�	not_identified	de la	P DET	
+Vert pop	product	Crazy Rose	product	( 03 ) et	PONCT ADJ CC	
+Nude Magique	range	CC creams	range	, pas moins de trois	PONCT ADV P NC	
+L'Or�al Paris	brand	Age Perfect	range	propose , sous sa franchise	V PONCT P DET NC	
+Spray UV	product	Institut Esthederm	not_identified	inCellium Bronzant d'	ET P	
+Le vernis 3D	product	Nocib�	brand	de	P	
+Luxe	division	L'Oréal	group	de	P	
+Hypn�se Drama	product	Lanc�me	brand	de	P	
+L'Or�al Luxe	brand	Sport	product	) apr�s un parfum	PONCT V DET NC	
+Sunset	product	Sleek Makeup	brand	de	P	
+Timotei	brand	Axe	brand	et	CC	
+Color Tattoo 24H	range	Gemey-Maybelline	not_identified	chez	P	
+Widelash	not_identified	Procapil	not_identified	, une version du	PONCT DET NC P	
+Color Elixir	product	Maybelline	brand	de	P	
+U Parfumerie	product	Syst�me U	not_identified	chez	P	
+Bronze Goddess	product	Est�e Lauder	brand	d'	P	
+Mini Crème	product	Nectar of Nature	product	de douche hydratante	P NC ADJ	
+Éclat	range	Arpège	brand	d'	P	
+Vaste programme	not_identified	La Vie est Belle	product	pour	P	
+Cologne	not_identified	Herboriste	not_identified	de l'	P DET	
+Cosm�tique active international	division	L'Or�al	group	de	P	
+création	not_identified	Acqua di Gio	product	d'	P	
+Unexpected Rosy Taupe	not_identified	Luxurious Gold	product	et	CC	
+L'Oréal Luxe	not_identified	Fnac	not_identified	et dirigé la	CC VPP DET	
+Givenchy	brand	Peace	not_identified	( LVMH ) ou	PONCT NPP CC	
+La Vie est Belle	product	Lanc \'f4me	brand	de	P	
+Color Riche Le Nail Art	product	L'Or�al Paris	brand	de	P	
+olfactif	not_identified	Rouge Curaçao	product	chez	P	
+L'Onglerie	range	Color Addict	range	nommée \"	VPP PONCT	
+Peau	brand	Guerlain	group	de	P	
+Coty Beauty	not_identified	mise	not_identified	rafle la	V DET	
+Fondation L'Or�al	group	Apprentis	not_identified	avec les	P DET	
+Jumbo Eyeshadow Pencil	not_identified	Black Bean	product	en version	P NC	
+Palette Isla Sirena	product	Duwop	brand	de	P	
+Bordeaux	not_identified	Vert	not_identified	irisé , le	VPP PONCT DET	
+Guerlain	product	Lancôme	product	ou d' un crayon	CC P DET NC	
+Yves Rocher	not_identified	So Elixir Purple	product	s' impose avec son féminin	CLR V P DET ADJ	
+Baby Doll	not_identified	Yves Saint Laurent	product	, Paris et Opium	PONCT NPP CC	
+Cr�me prodigieuse	range	Nuxe	brand	de	P	
+Luxe	division	L'Or�al	group	de	P	
+Pacific Creation	not_identified	Insoo John	not_identified	en remplacement de	P NC	
+Organisation Mondiale	not_identified	Sant�	not_identified	de la	P DET	
+Geo Girl	brand	Walmart	not_identified	vendue chez	VPP P	
+Nutreov-Laboratoires Physcience	group	Noreva	brand	( compl�ments alimentaires ) ,	PONCT NC ADJ	
+Corporate Knights	not_identified	Forum	not_identified	à l' occasion du	P DET NC	
+Lip Envy Urban Decay	not_identified	Crush Lip Stain	not_identified	ou les	CC DET	
+Mane	not_identified	Cinquième Sens en tant que formatrice spécialiste	not_identified	, rejoint l' équipe de	PONCT V DET NC P	
+Kao	not_identified	Impag	group	puis rejoint le groupe suisse	CC V DET NC ADJ	
+Gr�ce	product	Isra�l	product	et	CC	
+Guerlain	group	Clarins	product	avec un blush	P DET ET	
+Hypn�se	product	Lanc�me	brand	de	P	
+Huile	not_identified	Schwarzkopf	not_identified	de beaut� nutritive Hydra Liss 72H Fructis tandis que Gliss	P NPP CS	
+Double Serum	product	Clarins	brand	de	P	
+Sensual Vanille	not_identified	Eau Jeune	product	chez	P	
+L'Or�al �	group	Biotherm	not_identified	l' international pour Lanc�me ,	DET ADJ P NPP PONCT	
+Club	not_identified	Beaut�	brand	des Cr�ateurs de	P NC	
+Code Jeunesse Lumi�re	brand	L'Or�al Paris	not_identified	chez	P	
+Produits professionnels	division	L'Oréal	group	de	P	
+Rouge Volupt� shine	product	Rouge pur shine	product	, qui remplace	PONCT PROREL V	
+profit	not_identified	La Vie est Belle	product	de	P	
+Designers	product	L'Oréal Luxe	not_identified	chez	P	
+Atelier v�g�tal dYves Rocher	not_identified	Kiehl's	brand	ou des boutiques	CC DET NC	
+Performics exclut Twitter	not_identified	Facebook	not_identified	et	CC	
+Rothschild	not_identified	Laboratoires Filorga	division	les	DET	
+Eau thermale	product	La Roche-Posay	brand	de	P	
+Canal+	brand	Canalsatellite	brand	et	CC	
+Leclerc	product	Casino	product	et autres	CC ADJ	
+Performics exclut Twitter	not_identified	Facebook	not_identified	et	CC	
+L'Oréal	group	profit	not_identified	au	P	
+Prix international	not_identified	Parfum 2013	product	du	P	
+Rouge Volupté Shine	product	Yves Saint Laurent	brand	d'	P	
+Soin Miracle Perfecteur	product	L'Or�al Produits grand public	division	de Garnier (	P NPP PONCT	
+The Style Outlets	brand	Roppenheim � 45 km	brand	de	P	
+L'Or�al Luxe	not_identified	Fnac	not_identified	et dirig� la	CC VINF DET	
+GMS	not_identified	Color Riche Le Nail Art	product	avec	P	
+Flare	product	Sigma	brand	de	P	
+Interview�e	not_identified	Elle	not_identified	dans Be , Glamour ou	P NPP PONCT CC	
+Super Stay	brand	Gemey-Maybelline	group	de	P	
+Roppenheim � 45 km	brand	Strasbourg	group	de	P	
+Sainsbury's	not_identified	Tesco	not_identified	comme chez	P	
+Jumbo	product	Nyx	brand	de	P	
+Isipca	not_identified	Mane	not_identified	et assistante parfumeur chez	CC ADJ NC P	
+Dubaï Duty Free	not_identified	Aldeasa	not_identified	, Nuance et devant	PONCT NPP CC P	
+Lanc�me	brand	Bourjois	brand	et des fards	CC P NC	
+Cosm�tique Active	division	LOr�al	group	du groupe	P NC	
+Haute Expertise	range	L'Oréal Paris	brand	de	P	
+Cofremca	not_identified	Fran�ais	not_identified	, plus de 1	PONCT ADV P DET	
+Lift	not_identified	S�rum	range	pour peaux matures d' un	P NC ADJ DET	
+Rouge in	product	Vernis in	product	love et les	V CC DET	
+K�ra-skin Esthetics	not_identified	Serum Blending	product	lance donc le	V ADV DET	
+Timotei	brand	Axe	brand	et	CC	
+Sun Fluid	product	Eucerin	brand	d'	P	
+Tom Ford	product	Fr�d�ric Malle	brand	ou les parfums	CC DET NC	
+Blush adaptateur	product	Sephora	product	de couleur	P NC	
+Ren� Lalique	product	Art nouveau	brand	dessine plusieurs flacons	V DET NC	
+Parker & Waterman	not_identified	Apple	not_identified	apr�s un passage chez	ADV DET NC P	
+Carrefour	brand	L'Oréal	brand	et	CC	
+Insead	not_identified	Coletica	not_identified	entre en 2004 chez	P ADJ	
+égérie	not_identified	Trésor Midnight Rose	product	de	P	
+Avis	not_identified	Palette Storm	product	sur la	P DET	
+Symrise	not_identified	Prix Lalique	not_identified	, a re�u le	PONCT V VPP DET	
+envie	not_identified	Beige Or Sacré	product	du	P	
+Acqua for Life	product	Acqua di Gio	brand	de	P	
+Shiseido	not_identified	Future Solution LX	range	, o� la ligne	PONCT ADV DET NC	
+Trésor Midnight Rose	product	Trésor	range	a fait passer la franchise	V VPP VINF DET NC	
+Performist	not_identified	Veld's	brand	de Wonderskin et la marque	P NPP CC DET NC	
+Liérac	brand	Phyto	brand	et	CC	
+Indie Award 2013	not_identified	Fragrance Foundation �	group	remis par la	VPP P DET	
+Poudre Transparente	product	Sisley	brand	de	P	
+Le Musc &	product	Plume	not_identified	la	DET	
+Duba� Duty Free	not_identified	Aldeasa	not_identified	, Nuance et devant	PONCT NPP CC P	
+Darphin	not_identified	Est�e Lauder	group	, marque du groupe	PONCT NC P	
+Produits professionnels	division	L'Or�al	group	de	P	
+La Roche-Posay Vichy	brand	Sanoflore	brand	et	CC	
+New Look	not_identified	Diorissimo	brand	au flacon de	P NC	
+Luxe	division	Benelux	not_identified	pour le	P DET	
+Piscataway	not_identified	New York	not_identified	aux États-Unis , près de	P NPP PONCT	
+ambassadeur	not_identified	La Nuit de l Homme	product	de	P	
+Mon Jasmin Noir	product	Bulgari	brand	de	P	
+Marionnaud	not_identified	Convention	not_identified	de la rue	P DET NC	
+L'Or�al	not_identified	Piscataway	not_identified	exploite deux usines ,	V ADJ NC PONCT	
+Eva Mendes	person	Angel	product	, égérie du parfum	PONCT NC P	
+Rothschild	not_identified	Laboratoires Filorga	division	les	DET	
+L'Or�al Paris	not_identified	Huile extraordinaire	product	propose depuis janvier l'	V P NC DET	
+Firme-nich	brand	Th�	not_identified	et d�j� auteur du	CC NPP NC P	
+Rexona	product	Unilever	group	du groupe	P NC	
+Jean-Fran�ois Bouygues	not_identified	Pochet fin 2011	not_identified	, entr� chez	PONCT NPP P	
+Beach Walk	not_identified	Replica	range	, dans la collection	PONCT P DET NC	
+Nordisk	not_identified	Biotech	product	, comme chef de produit	PONCT P NC	
+Gap	brand	Banana Republic	brand	et	CC	
+Indie Award 2013	not_identified	Fragrance Foundation	group	remis par la	VPP P DET	
+Guerlain	group	Clarins	product	avec un blush	P DET ET	
+Color Riche	range	Nail Art	product	le	DET	
+Shiseido	not_identified	Guerlain	not_identified	et un responsable export chez	CC DET NC P	
+Azzaro	not_identified	Decibel	not_identified	et son	CC DET	
+Produits Grand Public	division	Arcancil Paris	not_identified	) , arrive chez	PONCT V P	
+Laboratoires Pierre Fabre	division	Laboratoires Plantes	product	o� il dirige les	V CLS DET	
+In Love de Trésor Midnight Rose	product	Lancôme	brand	de	P	
+Petit Marseillais	not_identified	Huile anticellulite tonifiante	product	lance en f�vrier l'	V P VINF DET	
+Douceurs	range	Provence	brand	de	P	
+d�but	not_identified	XXe si�cle	product	du	P	
+Black XS for her	product	Givenchy Play for her	product	( Paco Rabanne ) ,	PONCT NPP	
+Luxe	division	L'Oréal	group	de	P	
+L'Or�al paris	brand	Nivea	not_identified	, Diadermine Garnier	PONCT NPP	
+Temps	not_identified	Scent Lab	division	� La D�fense ) testent le	ADJ NPP PONCT V DET	
+Luxe	division	L'Or�al	group	de	P	
+Franco-Américain	product	Christian Dior	brand	a travaillé pour les marques	V VPP P DET NC	
+Biotherm	not_identified	Biologie	not_identified	( pour \"	PONCT P	
+m�me	not_identified	Les Essentiels by Glossybox	product	pour	P	
+CosmétiqueMag	product	LexisNexis	product	et	CC	
+Rouge Provocant	product	Rouge Élégant	product	et le	CC DET	
+Corine	brand	Farme	group	de	P	
+Jean-Paul Agon	not_identified	Or�al	not_identified	, PDG de l'	PONCT NC P DET	
+Aqua Cream	product	Black Out	product	et un mascara waterproof	CC DET NC	
+Blondépil	brand	Les Petits Plaisirs	brand	et	CC	
+Premier opus	product	Cosm�tiqueHebdo	brand	de	P	
+Entreprise	not_identified	Travail	not_identified	et du	CC P	
+Tr�sor Midnight Rose	product	Lanc�me	not_identified	avec la charmante Emma Watson ,	P DET ADJ NPP PONCT	
+Pacific Creation	not_identified	Lolita Lempicka Rémi Clero	product	gère notamment les parfums	V ADV DET NC	
+Fontaine	product	Jouvence	brand	de	P	
+Cosm�tique active	division	L'Or�al	group	de	P	
+Jahwa	not_identified	Jahwa	not_identified	, chez Sephora ( dont	PONCT P NPP PROREL	
+Peau	brand	Guerlain	group	de	P	
+Maison	not_identified	Faubourg Saint-Honor�	not_identified	de Beaut� du	P NPP	
+Indiens	product	Indon�siens	product	et les	CC DET	
+Semaine	not_identified	L'Or�al	not_identified	de l' industrie ,	P DET NC PONCT	
+Color Tattoo 24H ombres � paupi�res	product	Gemey-Maybelline	brand	de	P	
+Black Up	product	Make Up for Ever	not_identified	ou	CC	
+Tr�sor Midnight Rose	product	Facebook	not_identified	sur sa page	P DET NC	
+Mer	product	Est�e Lauder	group	et Jo Malone ( groupe	CC NPP PONCT NC	
+Vanish	not_identified	Reveal	not_identified	, mélangé avec	PONCT VPP P	
+NYX Winter	brand	Moscow	product	in	V	
+L'Or�al	not_identified	Guerlain.�	not_identified	, la parfumerie chez	PONCT DET NC P	
+Rouge in Love	product	Lanc�me.�	brand	de	P	
+sensible	not_identified	Santal Blush	product	dans	P	
+Mon Jasmin Noir	product	Bulgari	brand	de	P	
+Hypn�se Doll Eyes	product	Lanc�me pr�sent�e	brand	de	P	
+Missha	not_identified	Coogi	not_identified	et	CC	
+Replica	range	Maison Martin Margiela	brand	de	P	
+Luxe	division	L'Or�al	group	de	P	
+Topicrem	brand	Charlieu	brand	et	CC	
+Nivea	product	Furterer	product	) et soins ( masques	PONCT CC NC	
+Jacomo	brand	Institut Phyto	brand	( s�lectif ) ,	PONCT NC	
+Serdex	division	Bayer Sant� Familiale	group	de	P	
+Universit� de Californie Santa Cruz	not_identified	San Francisco State University	not_identified	et de la	CC P DET	
+égérie	not_identified	Rouge Coco	product	du	P	
+Isipca	not_identified	Mane	not_identified	et assistante parfumeur chez	CC ADJ NC P	
+Nordisk	not_identified	Biotech	product	, comme chef de produit	PONCT P NC	
+s�rums	not_identified	Advanced Night Repair	product	avec	P	
+Codel	not_identified	Salon	not_identified	, d' Amaury Media et du	PONCT P NPP CC	
+base	not_identified	Thé vert	product	de	P	
+Buste divin	product	Minceur Sublime Body	range	, la ligne	PONCT DET NC	
+Mascara Black Out Waterproof	product	Dior	brand	de	P	
+Afro-Am�ricaines	not_identified	Asiatiques	not_identified	comme les	P DET	
+Seconde Guerre mondiale	not_identified	Am�ricains	not_identified	et d�velopp�e par les	CC ADV P DET	
+Vichy	brand	Inneov	brand	et	CC	
+Parisienne	product	Baby Doll	not_identified	, Belle d' Opium	PONCT NPP P	
+héroïne	not_identified	Black Swan	product	de	P	
+Sublime Mousse	product	L'Or�al Paris	brand	de	P	
+Robertet	not_identified	Evidence Homme Green dYves Rocher	not_identified	) et Comme une	PONCT CC NPP DET	
+Fondation Mac	group	Estée Lauder	group	contre le sida ( groupe	P DET NC PONCT	
+Black Up	product	Sleek MakeUp	not_identified	, Iman True Colors	PONCT NPP	
+Hypnôse Drama	product	Lancôme	brand	de	P	
+L'Oréal	not_identified	LaScad	not_identified	et à	CC P	
+Reed Elsevier	group	CosmétiqueMag	not_identified	( propriétaire également de \"	PONCT NC ADV P	
+Cosm�tique active international	division	L'Or�al	group	du groupe	P NC	
+Dior	not_identified	Thakoon	not_identified	, une collaboration avec	PONCT DET NC P	
+Twitter	not_identified	Facebook	not_identified	et	CC	
+Eucerin	brand	Hansaplast	brand	et	CC	
+Color Show	range	Gemey-Maybelline	not_identified	avec ses 50 nuances chez	P DET ADJ NC	
+Jean-Paul Agon	not_identified	L'Or�al	group	, PDG du groupe	PONCT NC P	
+h�ro�ne	not_identified	Black Swan	product	de	P	
+entam�e	not_identified	Shalimar Parfum initial	product	avec	P	
+Minceur Sublime Body	range	L'Or�al Paris	brand	de	P	
+Uriage	brand	Corporaci�n Exea Empresarial	not_identified	, propri�t� de M3 Invest et	PONCT NC P NPP CC	
+Av�ne	product	La Roche-Posay	not_identified	ou du	CC P	
+Lotion Clarifiante 2	product	Clinique	brand	de	P	
+Waterproof Liquid Eyeliner	product	Perversion	product	dans la teinte	P DET NC	
+Dior	brand	Tom Ford	product	, le maquillage	PONCT DET NC	
+Eau Fraîche Figue	product	Vigne	brand	de	P	
+Palette Paraguaya	product	Sleek	not_identified	de chez	P	
+BB Cream	product	Chubby Stick	not_identified	ou le	CC DET	
+Thor	not_identified	Sex Friends	not_identified	\" et	PONCT CC	
+Rouge Volupt� Shine	product	Yves Saint Laurent	brand	d'	P	
+Aveeno	brand	Neutrogena	brand	et	CC	
+Corporate Knights �	not_identified	Forum	not_identified	l' occasion du	DET NC P	
+Jessica Chastain	person	The Tree of Life	not_identified	, Palme d' or pour	PONCT NPP P NC	
+In Love de Tr�sor Midnight Rose	product	Lanc�me	brand	de	P	
+Nocib�	not_identified	Charterhouse	not_identified	, propri�t� du fonds	PONCT NC P	
+Produits professionnels	division	L'Or�al	group	de	P	
+Huile extraordinaire universelle	product	Els�ve	brand	d'	P	
+Jacomo	brand	Institut Phyto	brand	( sélectif ) ,	PONCT ADJ	
+Lanc�me International	division	Armani	not_identified	et chez	CC P	
+Apr�s Andersen Business Consulting	group	Yves Rocher �	group	, il int�gre le groupe	PONCT CLS V DET NC	
+Power Plate	not_identified	Fitvibe	not_identified	ou le	CC DET	
+L'Or�al Paris	not_identified	Marionnaud	brand	, une vingtaine chez	PONCT DET NC P	
+Acqua di Gio	brand	Acqua di Gioia	product	et	CC	
+BB cream Hydra Life	product	Dior	not_identified	axée sur le soin ,	VPP P DET NC PONCT	
+L  'eye liner effet faux cils Shocking	product	Yves Saint Laurent	brand	d'	P	
+Nocta-S�ve Mol�culaire	not_identified	Prodigy Night	product	, base de son nouveau	PONCT NC P DET ADJ	
+Cosm�tique active international	division	L'Or�al	group	de	P	
+Unilever	brand	L'Oréal	brand	et	CC	
+Drive	product	Carrefour Planet	not_identified	mais pas les	CC ADV DET	
+Volume Effet Faux Cils	product	Yves Saint Laurent	brand	de	P	
+Ouest�	not_identified	Jean-Paul Agon	not_identified	, a indiqu�	PONCT V VPP	
+Acqua di Gioia	product	Acqua for Life	product	dans leur �dition	P DET NC	
+Biocoop	brand	La Vie Claire�	brand	ou	CC	
+Eva Mendes	person	Angel	product	, �g�rie du parfum	PONCT NPP P NC	
+mascaras	not_identified	Hypn�se Doll Eyes	product	avec	P	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+olfactif	not_identified	Rouge Cura�ao	product	chez	P	
+Collection Priv�e	product	Dior	brand	de	P	
+Sothys	not_identified	Sothys Paris	not_identified	, est PDG de	PONCT V NC P	
+Bare	product	Sigma	brand	de	P	
+gamme	not_identified	Bio Beaut� By Nuxe	product	de	P	
+mise	not_identified	VIP pour Elle	product	avec	P	
+Blush adaptateur	product	Sephora	product	de couleur	P NC	
+Manifesto	product	Yves Saint Laurent	brand	d'	P	
+Wol-koff	brand	Arnodin	brand	et	CC	
+Laboratoires Plantes	product	M�decines	product	et	CC	
+Dior Homme	not_identified	Cologne	not_identified	lance en f�vrier une	V P NPP DET	
+Soleil Juillet	not_identified	Soleil Août	not_identified	\" ou	PONCT CC	
+Crayon Fixateur Sourcils	product	Réserve Naturelle	brand	de	P	
+BB Cream	product	Chubby Stick	not_identified	ou le	CC DET	
+Acqua di Gio	product	Acqua di Gioia	product	et	CC	
+pays	not_identified	Hypn�se Doll Eyes	product	sur	P	
+Eucerin	brand	Hansaplast	brand	et	CC	
+Jean-Paul Agon	not_identified	Oréal	not_identified	, PDG de l'	PONCT NC P DET	
+The Emotion & Beauty Lab	division	Pr Jean Cotte	not_identified	et �l�ve du	CC NPP P	
+Eau thermale	product	Vichy	brand	de	P	
+Gel�e	product	Enchanted Silver	product	d' interdit	P V	
+Parfum	range	Maquillage Kimmi	range	et	CC	
+Rouge Coco	product	Chanel	brand	de	P	
+Emmanuel	not_identified	La Baume	product	de	P	
+Acqua di Gioia	product	Acqua for Life	product	dans leur édition	P DET NC	
+Off With Her Red	product	OPI Alice	range	( de la collection	PONCT P DET NC	
+Casino	not_identified	Palais	not_identified	situ�e en face du	V P NC	
+St�moxydine	not_identified	Dercos Neogenic	range	, pr�sent dans la gamme	PONCT V P DET NC	
+Bourgeois	not_identified	Biotherm	not_identified	( directeur g�n�ral France de	PONCT NC ADJ NPP P	
+Auri�ge	brand	Ari�ge	not_identified	tire son origine de l'	V DET NC P	
+Emmanuel	not_identified	La Baume	product	de	P	
+Algotherm	not_identified	Nature-Algues	not_identified	et	CC	
+Pr�f�rence Mousse absolue	product	L'Or�al Paris	brand	de	P	
+Hydra Sparkling baume l�vres	product	Dior Addict Lip Glow	product	et joues Givenchy ,	CC NC NPP PONCT	
+Redken	product	K�ranove	product	ou	CC	
+Cadum	not_identified	Produits grand public	division	rejoint la division des	V DET NC P	
+Marionnaud	not_identified	Hutchison	not_identified	( également propriété d'	PONCT ADV NC P	
+Or�al luxe	not_identified	Rouge Volupt� shine	product	lance en f�vrier	V P NC	
+Gravity	product	Hijack	product	et	CC	
+Lime Crime	brand	Lime Crime	brand	: sur le site officiel	PONCT P DET NC ADJ	
+Acqua	range	Tattoo	not_identified	di Gio ,	NPP PONCT	
+Dop	not_identified	Douceurs	range	propose une nouvelle ligne ,	V DET ADJ NC PONCT	
+Jean-Fran�ois Leprince	not_identified	Clarins Fragrance Group	group	, depuis 2008 DG France de	PONCT P ADJ NPP	
+Travail	not_identified	Grande	not_identified	, nous lancerons la	PONCT CLS V DET	
+Ducray	brand	A-Derma	brand	et	CC	
+Lancienne �tudiante	range	Universit� de Californie Santa Cruz	not_identified	de l'	P DET	
+Essec	not_identified	Innothera	not_identified	avant d' entrer en 1995 chez	P VINF ADJ	
+cr�ateur	not_identified	Touche Eclat	product	de	P	
+Cognis	not_identified	Henkel	not_identified	, puis chez	PONCT CC P	
+S�bium	range	Bioderma	not_identified	chez	P	
+Only°the°Brave Tattoo	product	Diesel	brand	de	P	
+Ex-Reed Exhibitions	not_identified	Greentech en tant que responsable marketing	not_identified	, elle a rejoint	PONCT CLS V VPP	
+Zeste de Vigne	product	Th�	product	et	CC	
+Mousse Absolue	product	Pr�f�rence	brand	de	P	
+Aqua Cream	product	Make Up forever	brand	de	P	
+Pur produit	division	Luxe	division	de la division	P DET NC	
+Tr�sor Midnight Rose	product	Tr�sor	range	a fait passer la franchise	V VPP VINF DET NC	
+Pacific Creation g�re	division	Lolita Lempicka R�mi Clero	product	notamment les parfums	ADV DET NC	
+Acqua di Gio	product	Acqua di Gioia	product	et	CC	
+Luxe	division	L'Or�al	group	de	P	
+Repetto	product	Van Cleef & Arpels	not_identified	et une nouveaut� sur	CC DET NC P	
+Black Up	product	Make Up for Ever	not_identified	ou	CC	
+Cosm�tique Active	division	LOr�al	group	de	P	
+Cl�	brand	Peau	group	de	P	
+New York	not_identified	Kiehl's	brand	, essentiellement pour la marque	PONCT ADV P DET NC	
+Parfums	brand	Prestige International	group	de	P	
+Lanc�me	brand	Manifesto	brand	et	CC	
+Courval	not_identified	lancement	not_identified	pour le	P DET	
+Volume Millions	product	Cils	brand	de	P	
+L'Or�al Luxe	group	Forever Youth Liberator	range	, Yves Saint Laurent compl�te sa gamme	PONCT NPP V DET NC	
+Facebook	not_identified	Saint-Valentin 2013	range	pour illustrer le coffret	P VINF DET NC	
+Congr�s Parfums	product	Cosm�tiques	product	et	CC	
+Advanced Night Repair	product	Forever Light Creator	not_identified	et Yves Saint Laurent lance le soin	CC NPP V DET NC	
+sc�ne parfum�e	not_identified	La Vie est Belle	product	avec	P	
+L'Or�al �	group	Biotherm	not_identified	l' international pour Lanc�me ,	DET ADJ P NPP PONCT	
+Universel L'Oréal Paris	product	Blush adaptateur	product	ou le	CC DET	
+Absolue	brand	Rénergie	brand	et	CC	
+Luxe	division	L'Or�al	group	de	P	
+Or�al Paris	not_identified	Haute expertise	range	enrichit sa gamme capillaire	V DET NC ADJ	
+Maison	not_identified	Am�rique latine	not_identified	de l'	P DET	
+L'Or�al Men Expert	brand	Nivea Men	brand	, Garnier et	PONCT NPP CC	
+Biotherm	not_identified	Lancôme	not_identified	et	CC	
+lancement	not_identified	La Vie est Belle	product	de	P	
+Stanhome	brand	Petit Bateau	brand	et	CC	
+Marais � Paris	not_identified	Nolita � New York	not_identified	ou	CC	
+L'Or�al Produits grand public	division	d�ferlante	not_identified	) , embl�matique de la	PONCT NPP P DET	
+lancement	not_identified	La Vie est Belle	product	de	P	
+Calligraphie yeux	product	M�t�orites Perles du Dragon	not_identified	et l�vres , des	CC NC PONCT DET	
+Beach Walk	not_identified	Replica	range	, dans la collection	PONCT P DET NC	
+utilité	not_identified	Bottom Lash Mascara	product	du	P	
+Institut Esthederm	not_identified	Spray UV	product	( Naos ) /	PONCT NC	
+Solvay	not_identified	Santé animale	division	, à la division	PONCT P DET NC	
+Carrefour	not_identified	Gold Generation	range	, a sorti la gamme	PONCT V VPP DET NC	
+La Vie est Belle	product	Manifesto	product	et	CC	
+Absolue	range	Extrait	range	, notamment l'	PONCT ADV DET	
+Easy Nail Art	product	Biguine Makeup	brand	de	P	
+�dition	not_identified	Congr�s Parfums	product	du	P	
+Huile prodigieuse	product	Nuxe	brand	de	P	
+Shanghai	not_identified	Topline Products	division	que	CS	
+Multi-R�g�n�rante	range	Clarins	brand	de	P	
+Givenchy	brand	Nath	not_identified	, au départ c' est	PONCT P NC CLS V	
+Bourjois	not_identified	L'Or�al Paris	not_identified	, 40 chez	PONCT ADJ P	
+Sabiluc	division	Hei Poa	division	( Naturelle dArgan ,	PONCT ADJ NPP	
+Luxe	division	L'Or�al	group	de	P	
+cas	not_identified	Gloss Couleur Caramel	product	du	P	
+Cosmétique Active	division	L'Oréal	group	du groupe	P NC	
+Phenomen'eyes	product	Givenchy	brand	de	P	
+Rouge Coco	product	Chanel	brand	de	P	
+Galeries Lafayette �	not_identified	Printemps �	not_identified	+8,5 % , le	DET NC PONCT	
+mondial	not_identified	Touche Eclat	product	de	P	
+Excipial	brand	Daylong	brand	et	CC	
+Grand Public	division	L'Or�al	group	de	P	
+place	not_identified	Acqua di Gio	product	pour	P	
+Manifesto	brand	Yves Saint Laurent	group	d'	P	
+�g�rie	not_identified	Rouge Coco	product	du	P	
+Corine	brand	Farme	group	de	P	
+Spray UV inCellium Bronzant	product	Institut Esthederm	brand	d'	P	
+Duo Fibre F50	product	Sigma	not_identified	de chez	P	
+teintes	not_identified	Teint Idole Ultra 24H	product	de	P	
+Twitter	not_identified	Facebook	not_identified	et	CC	
+Huile	not_identified	Bronzage	product	s�che	ET	
+Solvay	not_identified	Sant� animale	division	, � la division	PONCT ADV DET NC	
+Produits grand public	division	L'Or�al	group	du groupe	P NC	
+lancement	not_identified	La Vie est Belle	product	de	P	
+Hydra Sparkling baume lèvres	product	Dior Addict Lip Glow	product	et joues Givenchy ,	CC NC NPP PONCT	
+Correspondance	product	Enseigne	product	de l'	P DET	
+Redken	product	Kéranove	product	ou	CC	
+Koto Parfums	range	Kimmi	range	ont mis en avant leur collection	V VPP ADV DET NC	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Asian Tales	range	By Kilian	brand	de	P	
+r�f�rences	not_identified	BB cream Nude Magique	product	de	P	
+Grand Public	division	L'Oréal	group	de	P	
+GMC Creative	not_identified	Zenith Optimedia	not_identified	, et l' agence	PONCT CC DET NC	
+Parker & Waterman	not_identified	Apple	not_identified	, apr�s un passage chez	PONCT ADV DET NC P	
+Bobbi Brown	product	Mer	product	, Cr�me de la	PONCT NPP P DET	
+Hollywood	not_identified	Couleur	not_identified	vue dans \" La	VPP P PONCT DET	
+Mostra	product	Venise	brand	de	P	
+L'Or�al	not_identified	Gemey-Maybelline	product	au maquillage	P NC	
+Devil Fish	not_identified	Velvet Sea	not_identified	et	CC	
+Soft touch	not_identified	Email Me	not_identified	et le	CC DET	
+Petit Marseillais	brand	Neutrogena	brand	, Vend�me	PONCT NPP	
+Amway Corp	not_identified	Artistry	range	, avec sa gamme	PONCT P DET NC	
+Twitter	not_identified	Google blogs	not_identified	et 35 millions de	CC ADJ NC P	
+Klorane	division	Elancyl	division	et	CC	
+Amber Valletta	person	Biotherm	not_identified	, nouvelle ic�ne de	PONCT ADJ NC P	
+Carrefour	not_identified	Gold Generation	range	, a sorti la gamme	PONCT V VPP DET NC	
+Double Serum	product	Clarins	brand	de	P	
+Monoprix	not_identified	Produits grand public	division	par la division des	P DET NC	
+Designers	product	LOr�al Luxe	not_identified	chez	P	
+Toulousaine	not_identified	Pierre Fabre	group	est entrée dans le groupe	V VPP P DET NC	
+Ulric	brand	Varens	group	de	P	
+BB cream	product	Clarins	brand	de	P	
+lancement	not_identified	La Vie est Belle	product	de	P	
+Rouge in Love	product	Lancôme	brand	de	P	
+Aqua Look	product	Make up for Ever	brand	de	P	
+Dream Touch Blush	product	Dream Nude Mousse	product	en pot , et	P NC PONCT CC	
+Vichy	brand	Sanoflore	brand	et	CC	
+Habit Rouge	product	tube	not_identified	, propos� de personnaliser un	PONCT NC P VINF DET	
+autour du lancement	not_identified	La Vie est Belle	product	de	P	
+Huile extraordinaire	product	Buste divin	product	et le sérum	CC DET NC	
+Emmanuel	not_identified	La Baume	product	de	P	
+Brillant	not_identified	Duo	not_identified	à Lèvres Incroyable et un	P NPP CC DET	
+Lanc�me	brand	Manifesto	product	et	CC	
+Cosm�tique Active	division	L'Or�al	group	de	P	
+Produits professionnels	division	Cosm�tique active	not_identified	et la	CC DET	
+Emmanuel	not_identified	La Baume	product	de	P	
+Marionnaud	not_identified	Nocib�	not_identified	en d�clin , un	P NPP PONCT DET	
+Avis	not_identified	Fard	not_identified	en bref sur le	P ADV DET	
+Mascara Longueur Pulpeuse	product	Maybelline	brand	de	P	
+Rouge Coco	product	Chanel	brand	de	P	
+Sisley	brand	Est�e Lauder	brand	et	CC	
+tube	not_identified	Rouge Automatique	product	de	P	
+Absolue	brand	R�nergie	brand	et	CC	
+L'Or�al Paris	brand	Easy Nail Art	product	et	CC	
+Black Up	product	Sleek MakeUp	not_identified	, Iman True Colors	PONCT NPP	
+Fructis	brand	Jean-Louis Poiroux	not_identified	et des soins Garnier ,	CC P NC NPP PONCT	
+Luxe	division	Benelux	not_identified	pour le	P DET	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Parlement	not_identified	Conseil	not_identified	europ�en et du	ADJ CC P	
+Loverdose	product	Diesel	brand	de	P	
+Advanced Night Repair	product	Est�e Lauder	brand	d'	P	
+Olfactive Design	not_identified	Sensorium	not_identified	en France ou le	P NPP CC DET	
+Glam Shine Nude Bonbon	product	Strawberry Liquorice	not_identified	ou	CC	
+Els�ve	range	Hair Expertise	range	et	CC	
+Twitter	not_identified	Google blogs	not_identified	et 35 millions de	CC ADJ NC P	
+Renewing Pack	product	Valmont	brand	de	P	
+Chanel	not_identified	Color Tattoo 24H	range	, Infaillible de L'Or�al Paris ou	PONCT NPP P CC	
+Heure Bleue centi�me anniversaire	not_identified	Gripoix	brand	habill�e par Baccarat et	ADV P NPP CC	
+Apr�s Jean Paul Gaultier	not_identified	Cacha-rel	not_identified	ou	CC	
+Produits grand public	division	L'Or�al	group	de	P	
+Caudalie	brand	Lierac	brand	, Luminescence de	PONCT NPP P	
+exceptionnelle	not_identified	La Vie est Belle	product	grâce à	P	
+Serval	brand	Biocos fin 2009	not_identified	rebaptisé	VPP	
+Luxe	division	Benelux	not_identified	pour le	P DET	
+Patchouly	not_identified	Hippie's	not_identified	et	CC	
+Nathalie Gourbeyre	range	Koto Parfums	range	, directrice g�n�rale de	PONCT NC ADJ P	
+Coca-Cola	not_identified	Vendôme	brand	, il intègre les laboratoires	PONCT CLS V DET NC	
+Diorshow Black Out	product	Dior	brand	de	P	
+Bay Cedar PFA	not_identified	Line Repair	range	, pr�sent dans la gamme	PONCT V P DET NC	
+Hermessences	not_identified	Collection Priv�e	product	d' Herm�s , la	P NPP PONCT DET	
+Dahlia Noir	product	Givenchy	brand	de	P	
+S�bium	range	Bioderma	not_identified	chez	P	
+Entreprise	not_identified	Travail	not_identified	et du	CC P	
+Cosmétique active international	division	L'Oréal	group	de	P	
+Greensea	not_identified	Phytocos	not_identified	et	CC	
+Marque	brand	marques	brand	propre et	ADJ CC	
+Luxe	division	Benelux	not_identified	pour le	P DET	
+Club	product	Dragon Scales	not_identified	de Mac ou le	P NPP CC DET	
+maquillage	not_identified	Teint Visionnaire	product	avec	P	
+Forever Youth Liberator �	not_identified	ambassadeur	not_identified	une interview de Vincent Cassel ,	DET NC P NPP PONCT	
+Eau Universelle	product	L'Occitane	brand	de	P	
+Furterer	product	Klorane	product	et	CC	
+Jean-Louis Scherrer	brand	Eden Park	brand	, Jean Patou	PONCT NPP	
+Andersen Business Consulting	group	Yves Rocher	group	, il intègre le groupe	PONCT CLS V DET NC	
+BB Cream	product	L'Or�al Paris	brand	de	P	
+So Elixir Purple	product	LEau de Provence Eau Unverselle	product	et L'Occitane , avec	CC NPP PONCT P	
+Ambre Solaire	range	L'Or�al Produits grand public	division	, la marque (	PONCT DET NC	
+Yves Rocher	group	Fondation Yves Rocher-Institut	group	et de la	CC P DET	
+Softsheen-Carson	not_identified	Mizani	not_identified	et	CC	
+Dior J'Adore	product	Absolu	not_identified	l'	DET	
+Pr�f�rence Mousse Absolue	product	L'Or�al Paris	brand	de	P	
+�g�rie	not_identified	Rouge Caresse	product	de	P	
+R�mi Clero	not_identified	Pacific Creation	not_identified	prend la pr�sidence de	V DET NC P	
+S�rum	not_identified	Pro-R�tinol	not_identified	de teint anti-�ge contient du	P NC ADJ V	
+Lancôme	brand	Bourjois	brand	et des fards	CC P NC	
+Facebook	not_identified	Twitter	not_identified	, Beyoncé extrêmement suivie sur	PONCT NPP ADV VPP P	
+The Body Shop international	division	Or�alienne	not_identified	) : Cette l'	PONCT DET	
+Duo Poudre Teint Soleil	product	Sun Colors	range	( de la collection	PONCT P DET NC	
+L'Oréal	group	Crème Bienfaisante	product	avec	P	
+Perfect Mousse	product	Schwarzkopf	brand	de	P	
+marque	not_identified	L'Or�al Luxe cr�e Aquasource Deep Serum	product	de	P	
+Américaine Jessica Chastain	not_identified	The Tree	product	, vue dans \"	PONCT VPP P	
+The Eye Wand	product	Hatch Beauty	brand	de la marque	P DET NC	
+Kéra-skin Esthetics	not_identified	Serum Blending	product	lance donc le	V ADV DET	
+Eaux	range	Autour du monde	range	de voyage ,	P NC PONCT	
+Magma	range	Wella Professionals	brand	de	P	
+Pirates	not_identified	Fontaine	product	des Caraïbes : la	P NPP PONCT DET	
+Ducray	brand	A-Derma	brand	et	CC	
+Bien-�tre	not_identified	La cologne	product	avec	P	
+d�ferlante	not_identified	BB cream	product	de	P	
+Correspondance	product	Enseigne	not_identified	de l'	P DET	
+Dream Mat Mousse	product	Dream Touch Blush	product	et sa déclinaison	CC DET NC	
+Men Expert	brand	Revitalift double lifting jour	product	( aujourd'hui disparu ) ou	PONCT ADV VPP CC	
+Luxe	division	L'Or�al	brand	de	P	
+Renewing Pack	product	Valmont	brand	de	P	
+Md�	not_identified	Produits professionnels	division	) , les	PONCT DET	
+Smoss	brand	Saga cosmétiques à La Rochelle	not_identified	lors de ma visite chez	P DET NC	
+Ambre Solaire	range	L'Oréal Produits grand public	division	, la marque (	PONCT DET NC	
+Eau Sauvage	product	Dior	brand	de	P	
+Acqua di Gio	brand	Acqua di Gioia	product	et	CC	
+Soins	range	Corps	not_identified	du	P	
+Bien-Être	not_identified	La cologne	product	avec	P	
+La Sultane	brand	Saba	group	de	P	
+Blond�pil	brand	Les Petits Plaisirs	brand	et	CC	
+Dior Addict Lip Glow	product	Blush adaptateur	product	, Rose � l�vres Universel L'Or�al Paris ou le	PONCT NPP CC DET	
+Martin Crosnier	brand	Garnier	group	, chef de groupe	PONCT NC P	
+Playboy	brand	The Essence	not_identified	et	CC	
+Green	not_identified	Light Grey	not_identified	, Olive green Grey	PONCT NPP	
+Bobbi Brown	product	Too Faced	not_identified	, Laura Mercier	PONCT NPP	
+viral	not_identified	Very Irresistible Electric Rose	product	pour	P	
+Elvive	not_identified	R�cital Pr�f�rence	not_identified	( Els�ve ) , de	PONCT NPP P	
+Cosmétique Active	division	L'Oréal	group	du groupe	P NC	
+L'Or \'e9al	group	profit	not_identified	au	P	
+Colossal	product	Gemey-Maybelline	brand	de	P	
+Minceur Sublime Body	range	L'Oréal Paris	brand	de	P	
+Listo	brand	Essentiel B	brand	et	CC	
+Hedi Slimane	person	Yves Saint Laurent	not_identified	fait son retour chez	V DET NC P	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Mr Bones	not_identified	Facebook	not_identified	via sa page	P DET NC	
+Bupropion	product	Zyban Ce m�dicament	product	ou	CC	
+Little Lolie	not_identified	Supermodel	not_identified	pour voir la	P VINF DET	
+VIP pour Elle	product	Playboy	brand	de	P	
+Yves Saint Laurent	not_identified	Jessica Chastain	person	a choisi l' actrice	V VPP DET NC	
+Miami Printemps-Ete 2014	range	Masters Colors	brand	de	P	
+Volume Effet Faux Cils Shocking	product	Yves Saint Laurent	brand	d'	P	
+The tree of life	not_identified	Festival	not_identified	, palme d' or du	PONCT NC P	
+Catch Me	product	Cacharel	brand	de	P	
+Parker & Waterman	not_identified	Apple	not_identified	après un passage chez	P DET NC	
+Parfums	brand	Prestige International	group	de	P	
+lancement	not_identified	La Vie est Belle	product	de	P	
+�clat	not_identified	Jour positionn�e	product	du	P	
+Cicabiafine	not_identified	Aveeno	not_identified	, Roc Neutrogena et	PONCT NPP CC	
+Mascara Longueur Pulpeuse	product	Maybelline	brand	de	P	
+Cosm�tique Active	division	L'Or�al	group	de	P	
+Unilever	brand	L'Or�al	brand	et	CC	
+Color Show	range	Gemey-Maybelline	not_identified	avec ses 50 nuances chez	P DET ADJ NC	
+Jessica Chastain	person	The Tree of Life	not_identified	, r�v�l�e par	PONCT NPP P	
+La Vie est Belle	product	Lancôme	brand	de	P	
+Vichy	brand	Sanoflore	brand	et	CC	
+Very Irr�sistible Electric Rose	product	Givenchy	brand	de	P	
+Canal+	brand	Canalsatellite	brand	et	CC	
+Rouge Scarlet	product	Colour Passion by Chantal Thomass	product	de la gamme	P DET NC	
+à partir du 15 avrilET AUSSILa collection Asian Tales	not_identified	By Kilian accueille Flower of Immortality	product	de	P	
+Trésor Midnight Rose	product	Lancôme	brand	de	P	
+Bourjois	brand	Lingerie	product	) et le teint (	PONCT CC DET NC	
+Eau Sauvage	product	Dior	brand	de	P	
+Pacific Creation	not_identified	Insoo John	not_identified	en remplacement de	P NC	
+Hypn�se Drama	product	Lanc�me	brand	de	P	
+Ange ou Démon	product	Givenchy	brand	de	P	
+Methyl Styrene	not_identified	Isobutylmethacrylate	not_identified	/ Indene Copolymer ,	PONCT NPP	
+Dahlia Noir Eau	product	Givenchy	brand	de parfum	P NC	
+Emmanuel	not_identified	La Baume	product	de	P	
+Graphite	product	Sleek MakeUp	brand	de	P	
+Luxe	division	L'Or \'e9al	group	de	P	
+Lierac	brand	Code Jeunesse Lumi�re	brand	et	CC	
+Advanced Night Repair	product	Est�e Lauder	brand	d'	P	
+Cosm�tique active	division	L'Or�al	group	de	P	
+Hypn�se Star	product	Daria Wer-bowy	person	, avec le mannequin	PONCT P DET NC	
+Dercos Neogenic	range	Vichy	brand	de	P	
+Contes	product	No�l o� tous	brand	de	P	
+New York	not_identified	Kiehl's	brand	, essentiellement pour la marque	PONCT ADV P DET NC	
+Produits grand public	division	L'Oréal	group	du groupe	P NC	
+L'Or�al	not_identified	Chanel	not_identified	puis l' a poursuivie chez	CC CLO V VPP P	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Codes	not_identified	Fondation L'Or�al �	group	et de la	CC P DET	
+L'Or�al	not_identified	Cosm�tique Active	not_identified	, � la	PONCT ADV DET	
+BB cream Hydra Life ax�e	product	Dior	not_identified	sur le soin ,	P DET NC PONCT	
+Rouge Automatique	product	Guerlain	brand	de	P	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Carrefour	brand	L'Or�al	brand	et	CC	
+Huiles minérales	product	Phénoxyéthanol	not_identified	, sans Parabens	PONCT P NPP	
+Peefs Coffee	not_identified	Restoration Hardware	not_identified	and Tea et	ET CC	
+D�mesure	product	Givenchy	brand	de	P	
+Maria Galland	brand	Klosterfrau	group	en France ( groupe	P NPP PONCT NC	
+Premier Cru yeux	product	Caudalie	brand	de	P	
+Paraguaya	product	Sleek	brand	de	P	
+Capture Premières Rides	product	Dior	brand	de	P	
+Soins	range	Visage	not_identified	du	P	
+Économie	not_identified	Entreprise	not_identified	, de l'	PONCT P DET	
+Biotherm	not_identified	Cacharel	not_identified	et	CC	
+Omegassis	product	Hydrasome	product	et l'	CC DET	
+Facebook	not_identified	Saint-Valentin 2013	range	pour illustrer le coffret	P VINF DET NC	
+Allure Homme Sport Eau Extr�me	product	Chanel	brand	de	P	
+Eau	not_identified	Classique	not_identified	d' Issey Miyake , du	P NPP PONCT	
+maquillage	not_identified	Teint Visionnaire	product	avec	P	
+Courval	not_identified	lancement	not_identified	pour le	P DET	
+Cosm�tique Active	division	L'Or�al	group	du groupe	P NC	
+Monoprix	not_identified	Mega Volume Collag�ne	product	, comme le mascara	PONCT CS DET NC	
+Jahwa	not_identified	Jahwa	not_identified	, chez Sephora ( dont	PONCT P NPP PROREL	
+L'Oréal	not_identified	Cosmétique Active	not_identified	, à la	PONCT P DET	
+Paris	product	Sigma	brand	de	P	
+Excipial	brand	Daylong	brand	et	CC	
+Li�rac	brand	Phyto	brand	et	CC	
+Sensual Vanille	not_identified	Eau Jeune	product	chez	P	
+Secret	brand	Nuit	group	de	P	
+Aqua Cream	product	Make up For Ever	brand	de	P	
+Mascara Longueur Pulpeuse	product	Maybelline	brand	de	P	
+Wol-koff	brand	Arnodin	brand	et	CC	
+Monoprix	group	Fédération Procos	not_identified	, deviennent administrateurs de la	PONCT V NC P DET	
+Parfums PLV comptoirs Les Extraits	product	Guerlain	brand	de	P	
+Beach Walk	not_identified	Replica	range	, dans la collection	PONCT P DET NC	
+Ulric	brand	Varens	group	de	P	
+Mascara Volume effets faux cils Bleu Majorelle	product	Golden gloss	product	( 28,50 � ) ,	PONCT ADJ NC	
+Dop	not_identified	Douceurs	range	propose une nouvelle ligne ,	V DET ADJ NC PONCT	
+Topicrem	brand	Charlieu	brand	et	CC	
+Gap	brand	Banana Republic	brand	et	CC	
+Prix international	not_identified	Parfum 2013	product	du	P	
+Cosm�tique active	division	L'Or�al	group	de	P	
+Coty Beauty	not_identified	mise	not_identified	rafle la	V DET	
+Bourjois	brand	Lingerie	product	) et le teint (	PONCT CC DET NC	
+Cosmétique active international	division	L'Oréal	group	de	P	
+Dior Addict Lip Glow	product	Universel L'Oréal Paris	product	, Rose à lèvres	PONCT NPP P NC	
+Puig	group	Buy Paris Duty Free	not_identified	) ont d�velopp� , pour	PONCT V NPP P	
+Professeur Christine Poelman	brand	Club	range	, que le	PONCT CS DET	
+Cosmétique Active	division	L'Oréal	group	de	P	
+Vercors	not_identified	Sica	not_identified	, r�unis dans la	PONCT NPP P DET	
+The Style Outlets	brand	Roppenheim	group	de	P	
+Eucerin	brand	Hansaplast	brand	et	CC	
+Mousse Absolue	product	Préférence	brand	de	P	
+efforts	not_identified	La Vie est Belle	product	sur	P	
+Le Male	product	Le Beau Male	product	se d�cline en	CLR V P	
+�chantillonnage	not_identified	Habit Rouge	product	avec	P	
+Eric Ranjard	person	Conseil national	not_identified	a été réélu président du	V VPP NC P	
+Seppic	not_identified	Air Liquide	group	( soci�t� du groupe	PONCT NPP P NC	
+Super Stay	brand	Gemey-Maybelline	group	de	P	
+Still Life	brand	Olfactive Studio	group	d'	P	
+lancement	not_identified	Bois d Orange	product	de	P	
+Bhavesh Shah	not_identified	Firmenich VP Group	group	a �t� nomm� chez	V VPP VINF P	
+Institut Esthederm	not_identified	Spray uV inCellium	product	( Naos ) /	PONCT NC	
+Mousse Nettoyante	product	Shiseido	brand	et la brosse de	CC DET NC P	
+Tha�-Am�ricain Thakoon	not_identified	Ta�wanais Alexander Wang	not_identified	et le	CC DET	
+Afro-Américaines	not_identified	Asiatiques	not_identified	comme les	P DET	
+Lanc�me	not_identified	Rouge in	product	( L'Or�al Luxe ) lance les	PONCT NPP V DET	
+Desperate housewives	not_identified	Francis Kurkdjian	person	, c' est le créateur	PONCT CLS V DET NC	
+Danone	group	Bacardi Martini	group	et	CC	
+teintes	not_identified	Teint Idole Ultra 24H	product	de	P	
+Eau Sauvage	product	Dior	brand	de	P	
+Publicis	group	Synthesio	not_identified	) en partenariat avec	PONCT P NC	
+dor�	not_identified	Bois d Orange	product	pour	P	
+Beiersdorf	group	Nivea	brand	, notamment pour la marque	PONCT ADV P DET NC	
+Essec	not_identified	Innothera	not_identified	avant d' entrer en 1995 chez	P VINF ADJ	
+Faubourg-Saint-Antoine	not_identified	Bastille	not_identified	près de la	P DET	
+Facebook	not_identified	Twitter	not_identified	, Beyonc� extr�mement suivie sur	PONCT NPP ADV VPP P	
+Petit Marseillais	brand	Neutrogena	brand	, Vendôme	PONCT NPP	
+égérie	not_identified	Rouge Caresse	product	de	P	
+Acqua for Life	product	Acqua di Gio	brand	de	P	
+visage	not_identified	Crème bienfaisante	product	avec	P	
+Pr�f�rence	range	L'Or�al Paris	brand	de	P	
+Dior Homme	not_identified	Cologne	not_identified	lance en f�vrier une	V P NPP DET	
+Alnoor Mitha	not_identified	Alnoor Design	not_identified	de Bharat (	P NPP PONCT	
+Mon Jasmin Noir	product	Bulgari	brand	de	P	
+Spray �claircissant Blond Vacances	product	K�ranove	brand	de	P	
+Herborist	not_identified	Jahwa	not_identified	, marque du leader	PONCT NC P	
+Photo Finish unificateur	not_identified	Smashbox	not_identified	de teint lumi�re et	P NC NPP CC	
+Hypn�se Doll Eyes	product	Rouge	not_identified	ou	CC	
+Lanc�me International	division	Armani	not_identified	et chez	CC P	
+Winter	not_identified	Moscow	product	in	V	
+teintes	not_identified	Absolu Rouge	product	d'	P	
+Coralista de Benefit	not_identified	Peaches	not_identified	, soit le	PONCT CC DET	
+Pfizer	not_identified	Monsanto	not_identified	et	CC	
+Define	not_identified	Oversee	not_identified	en interne	P ADJ	
+Fondation Mac	group	Est�e Lauder	group	contre le sida ( groupe	P DET NC PONCT	
+Phenomen'eyes	product	Givenchy	brand	de	P	
+Storm	product	Sleek MakeUp	brand	de	P	
+La Vie est Belle	product	Lancôme	brand	de	P	
+Luxe	division	L'Oréal	group	de	P	
+Dream Mat Mousse	product	Dream Touch Blush	product	et sa d�clinaison	CC DET NC	
+Hydrasome	product	Resistem	not_identified	, ainsi que sur le	PONCT CC P DET	
+Liner Sixties	product	Agn�s b	brand	d'	P	
+Hydrosol	product	Argent	brand	d'	P	
+Mane	not_identified	Cinqui�me Sens en tant que formatrice sp�cialiste	not_identified	, rejoint l' �quipe de	PONCT V DET NC P	
+So Elixir Purple	product	LEau de Provence Eau Unverselle	product	et L'Occitane , avec	CC NPP PONCT P	
+Bhavesh Shah	not_identified	Firmenich VP Group	group	a été nommé chez	V VPP P	
+notes	not_identified	La Vie est Belle	product	de	P	
+Men Expert	brand	Revitalift double lifting jour	product	( aujourd'hui disparu ) ou	PONCT ADV VPP CC	
+Printemps	product	Galeries Lafayette Haussmann	product	et les	CC DET	
+Culture	not_identified	Communication	not_identified	et de la	CC P DET	
+Travail	not_identified	Grande réforme	not_identified	, nous lancerons la	PONCT CLS V DET	
+Lancôme International	division	Armani	not_identified	et chez	CC P	
+Symrise	not_identified	Prix Lalique	not_identified	, a reçu le	PONCT V VPP DET	
+Douceurs	range	Provence	brand	de	P	
+Zea Mays Starch	not_identified	Zinc Stearate	not_identified	( Organic Corn Starch ) * ,	PONCT NPP	
+U Parfumerie	product	Syst�me U	not_identified	chez	P	
+New Jersey	not_identified	Connecticut	not_identified	et le	CC DET	
+Espagnol	not_identified	Eucerin	brand	dirige les marques	V DET NC	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Eau dynamisante	product	Clarins	brand	de	P	
+Loverdose	product	Diesel	brand	de	P	
+Cinq Mondes	not_identified	Île Maurice	not_identified	ouvre en 2001 à l'	V P ADJ DET	
+Neovadiol	range	Vichy	brand	de	P	
+Nappy	not_identified	Natural	not_identified	\" ( pour	PONCT P	
+Emmanuel	not_identified	La Baume	product	de	P	
+Body Ultimate-Hammam Impérial	brand	Sun Ultimate	product	, 5 références corps ;	PONCT DET NC ADJ	
+Sunrise Duty Free	not_identified	China Duty Free	not_identified	et	CC	
+Rouge Volupté shine	product	Rouge pur shine	product	, qui remplace	PONCT PROREL V	
+Blue Therapy	product	Biotherm	brand	de	P	
+Roche-posay	product	Vichy	brand	et aux laboratoires	CC P NC	
+Mascara	not_identified	Glitter Mascara	product	pailleté (	VPP PONCT	
+BRlC	not_identified	Br�sil	product	dont le	PROREL DET	
+L'Oréal Luxe	group	Rouge Pur Shine	product	) , qui remplace	PONCT PROREL V	
+Am�rique	not_identified	Europe-Am�rique	not_identified	du Nord puis de l'	P NPP CC DET	
+Doux Gommage Lacté Visage	product	Rituel D'Asie	not_identified	inspiré du	VPP P	
+Semaine	not_identified	L'Oréal	not_identified	de l' industrie ,	P DET NC PONCT	
+Mousse Nettoyante	product	Shiseido	brand	et la brosse de	CC DET NC P	
+Volume Millions	product	Cils	brand	de	P	
+Limited Brands	not_identified	Ohio	not_identified	, bas� dans l'	PONCT NPP P DET	
+Cadum	not_identified	Produits grand public	division	rejoint la division des	V DET NC P	
+Parfums Givenchy	brand	FlowerTag EdT	not_identified	( LVMH ) ,	PONCT NPP	
+Toulousaine	not_identified	Pierre Fabre	group	est entr�e dans le groupe	V VPP P DET NC	
+Codel	not_identified	Salon	not_identified	, d' Amaury M�dias et du	PONCT P NPP CC	
+La Roche-Posay	not_identified	Vichy	brand	, mais aussi chez	PONCT CC ADV P	
+Shanghai	not_identified	Topline Products	division	que	CS	
+Patch Lisse Supr�me contour yeux	product	Carita	brand	de	P	
+Perfect Mousse	product	Schwarzkopf	brand	de	P	
+L'Or�al	group	autour du lancement	not_identified	a mis des moyens consid�rables	V VPP DET NC ADJ	
+Marc	brand	Morandière	not_identified	de la	P DET	
+Andros	brand	Nestl�	brand	et	CC	
+By Kilian	brand	Flower of Immortality	product	accueille	V	
+Cosmekit programme hydratant framboise	product	Dr Renaud	brand	de	P	
+Hypnôse Drama	product	Lancôme	brand	de	P	
+Ethyl Macadamiate	not_identified	Organic Jojoba Seed Oil	not_identified	, Simmondsia Chinensis (	PONCT NPP	
+Rouge Orage	product	Organdi Rose	product	, Gabrielle et	PONCT NPP CC	
+Eau	product	Empreinte	product	et	CC	
+Haute Expertise	range	L'Or�al Paris	brand	de	P	
+trois-en-un	not_identified	The Eye Wand	product	comme	P	
+Blond Vacances	product	K�ranove	brand	de	P	
+Acqua	range	Tattoo	product	di Gio ,	NPP PONCT	
+Vichy	brand	Inneov	brand	et	CC	
+�g�rie	not_identified	Tr�sor Midnight Rose	product	de	P	
+Jean-Paul Agon	not_identified	L'Or�al	group	, PDG du groupe	PONCT NC P	
+Clinique	not_identified	Even Better Concealer	product	propose un correcteur ,	V DET NC PONCT	
+Nivea	not_identified	Beiersdorf	brand	, marques issues des laboratoires	PONCT NC ADJ P	
+No�l de Mon Jasmin Noir	product	Bulgari	brand	de	P	
+Hypn�se Doll Eyes	product	Lanc�me	brand	de	P	
+Produits professionnels	division	L'Or�al	group	de	P	
+jackpot	not_identified	Soin miracle perfecteur	product	avec	P	
+Sun Gold	product	Sexy Gold	product	, voici le maquillage	PONCT V DET NC	
+Rouge Pure	product	Volume Effet Faux Cils	product	et le mascara	CC DET NC	
+LinkedIn	not_identified	Youtube r�unis	not_identified	et	CC	
+Pur produit	division	Luxe	division	de la division	P DET NC	
+Puig	group	Buy Paris Duty Free	not_identified	) ont développé , pour	PONCT V VPP P	
+Clarins	not_identified	Lierac	brand	, Luminescence chez	PONCT NPP P	
+Fame	product	Lady Gaga	brand	de	P	
+Sérum 7 Lift	range	Sérum anti-âge corps	product	pour peaux matures d' un	P NC ADJ DET	
+Piscataway	not_identified	New York	not_identified	aux �tats-Unis , pr�s de	P NPP PONCT NC	
+Lotion Clarifiante 2	product	Clinique	brand	de	P	
+Black Pearl	product	Sailor's Delight	not_identified	, Brazen Rum	PONCT NPP	
+Hydra Sparkling baume l�vres	product	Dior Addict Lip Glow	product	et joues Givenchy ,	CC NC NPP PONCT	
+profit	not_identified	La Vie est Belle	product	de	P	
+Eau Thermale	product	Jonzac	brand	de	P	
+Accord Parfait	product	L'Or�al Paris	brand	de	P	
+Marionnaud	brand	Nocib�	brand	ou	CC	
+Tr�sor Midnight Rose	product	Lanc�me	brand	de	P	
+Cosmétique active	division	L'Oréal	group	de	P	
+Savonnerie Claude	brand	Vial	brand	et	CC	
+Mousse Absolue	product	Pr�f�rence	brand	de	P	
+Teaslim	not_identified	base	not_identified	est un complément alimentaire à	V DET NC ADJ P	
+Nouvelle marque cr��e	brand	Californie	not_identified	par deux soeurs en	P ADJ NC	
+Biotherm	not_identified	Lanc�me	not_identified	et	CC	
+L'Oréal	not_identified	Piscataway	not_identified	exploite deux usines ,	V ADJ NC PONCT	
+Coca-Cola	not_identified	Vend�me	brand	, il int�gre les laboratoires	PONCT CLS V DET NC	
+Biotherm	not_identified	Cosmopolitan	not_identified	et	CC	
+Mer	product	Kiehl's	product	ou	CC	
+Produits professionnels	division	L'Oréal	group	de	P	
+The Style Outlets	brand	Roppenheim	group	de	P	
+Holi Colours	product	Couleur Caramel	brand	de	P	
+mise	not_identified	VIP pour Elle	product	avec	P	
+L'Or�al	not_identified	Shiseido	not_identified	, un responsable marketing chez	PONCT DET NC P	
+Publicis	group	Synthesio	not_identified	) en partenariat avec	PONCT P NC	
+Eau Thermale	product	Jonzac	brand	de	P	
+Monoprix	not_identified	Produits grand public	division	par la division des	P DET NC	
+Professeur Christine Poelman	brand	Club	range	, que le	PONCT CS DET	
+Dream Touch Blush	product	Dream Nude Mousse	product	en pot , et	P NC PONCT CC	
+prix	not_identified	Full kit	product	du	P	
+cr�ation	not_identified	Acqua di Gio	product	d'	P	
+Produits professionnels	division	L'Oréal	group	de	P	
+Aqua Liner	product	Make Up For Ever	brand	de	P	
+Feuille	not_identified	Cèdre Blanc	product	de Figuier ,	P NPP PONCT	
+CC Cream	product	DD Cream	product	, voici la	PONCT V DET	
+placement	not_identified	La Nuit de l Homme	product	de	P	
+La Roche-Posay	not_identified	Vichy	brand	, mais aussi chez	PONCT CC ADV P	
+Club	not_identified	Beauté	brand	des Créateurs de	P NC	
+Bourgeois	not_identified	Biotherm	not_identified	( directeur général France de	PONCT NC ADJ NPP P	
+place	not_identified	Acqua di Gio	product	pour	P	
+Aveeno	brand	Neutrogena	brand	et	CC	
+Rouge Pure	product	Volume Effet Faux Cils	product	et le mascara	CC DET NC	
+La Vie est Belle	product	Lanc�me	brand	de	P	
+Cicabiafine	not_identified	Aveeno	not_identified	, Roc Neutrogena et	PONCT NPP CC	
+L'Oréal	not_identified	Gemey-Maybelline	product	au maquillage	P NC	
+European Foundation for Quality Management	group	Afnor	not_identified	) d�fini par l'	PONCT VPP P DET	
+place	not_identified	La Vie est Belle	product	pour	P	
+Dior Addict en Eau Fra�che	product	Eau Sensuelle	product	et en	CC P	
+Replica	range	Maison Martin Margiela	brand	de	P	
+Tome 1 La Puret�	not_identified	Eau	not_identified	de Zadig & Voltaire et pour l'	P NPP CC DET	
+Nutreov-Laboratoires Physcience	group	Noreva	brand	( compléments alimentaires ) ,	PONCT NC ADJ	
+Palette Oh So Special	product	Sleek	brand	de	P	
+Hedi Slimane	person	Yves Saint Laurent	not_identified	fait son retour chez	V DET NC P	
+Vigne	brand	Caudalie	group	de	P	
+Eau dynamisante	product	Clarins	brand	de	P	
+Monoprix	group	F�d�ration Procos	not_identified	, deviennent administrateurs de la	PONCT V NC P DET	
+Lotus Blanc Belle	not_identified	Jour Kenzoki	product	de	P	
+L'Or�al Luxe	group	Rouge Pur Shine	product	) , qui remplace	PONCT PROREL V	
+Black Out	product	Dior	brand	de	P	
+Organic Jojoba Seed Oil	not_identified	Stearic Acid	not_identified	) * ,	PONCT	
+L'Or�al Paris	not_identified	Pr�f�rence	product	notamment , les nouvelles teintes	ADV PONCT DET ADJ NC	
+L'Or�al Paris	not_identified	Garnier�	not_identified	et un chez	CC NC P	
+Produits Grand Public	division	L'Or�al	group	de	P	
+Espagnol	not_identified	Eucerin	brand	dirige les marques	V DET NC	
+Cosm�tique active	division	L'Or�al	group	de	P	

@@ -6,6 +6,7 @@
 package fr.inria.smilk.ws.relationextraction;
 
 import fr.inria.smilk.ws.relationextraction.util.ListFilesUtil;
+import fr.inria.smilk.ws.relationextraction.util.openNLP;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -55,12 +56,12 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 
-        String outputFile = "/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/ExtractedRelations_v02.rdf";
+        String outputFile = "/Users/farhadzn/NetBeansProjects/OntologyBasedRelationExtraction/src/resources/ExtractedRelations_v02.rdf";
         ///user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus.xml
         // read all the data from the folder and bulid the model  non_annotated_cosmetic_corpus
-        OntModel model = constructOwlModelFromFile("/user/fnoorala/home/Desktop/SMILK/InformationExtraction/data/non_annotated_cosmetic_corpus");
-        writeOntModelToFile(model, outputFile);
-        analyseTriples(outputFile);
+       // OntModel model = constructOwlModelFromFile("/Users/farhadzn/NetBeansProjects/OntologyBasedRelationExtraction/src/resources/non_annotated_cosmetic_corpus");
+        //writeOntModelToFile(model, outputFile);
+        analyseTriples(outputFile,"/Users/farhadzn/NetBeansProjects/OntologyBasedRelationExtraction/src/resources/output.csv");
         // Renco renco = new Renco();
         // List<Triple> triples = extractDOMparser(renco.rencoByWebService(" Pour son cinquième anniversaire , La Vie en Rose , édition estivale du parfum de Viktor & Rolf ( L' Oréal Luxe ) créée par Olivier Polge ( IFF ) , s' offre une nouvelle composition autour de trois fleurs : la rose , le jasmin sambac et l' orchidée Heights "));
         // constructModel(triples);
@@ -130,7 +131,7 @@ public class Main {
 
     public static List<Sentence> extractDOMparser(String input) {
 
-        List<Sentence> sentences = new ArrayList<>();
+        List<Sentence> sentences = new ArrayList<>();;
 
         try {
 
@@ -467,30 +468,31 @@ public class Main {
         OntModel mainModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
         OntModel ontModel = constructOntology();
         Renco renco = new Renco();
-       
+
         try {
-    //Create the file reader
-           
+            //Create the file reader
+
             AnnotatedDocument annotatedDocument = new AnnotatedDocument();
             List<String> lines = readCorpus(folder);
-            System.out.println("Size of data: "+lines.size());
-            
+            System.out.println("Size of data: " + lines.size());
+
             int i = 0;
-            
+
             for (String line : lines) {
                 i++;
                 if (line.trim().length() > 1) {
-                 
+
                     List<Sentence> sentences = extractDOMparser(renco.rencoByWebService(line));
-                    
-                    annotatedDocument.setText(line);
-                    annotatedDocument.setId(i);
-                    annotatedDocument.setSentences(sentences);
-                    OntModel subModel = constructOntModel(ontModel, annotatedDocument);
-                    
-                    System.out.println("document "+ i +" of "+ lines.size() +" is added to ontology ");
-                    
-                    mainModel.add(subModel);
+                    if (sentences.size() > 0) {
+                        annotatedDocument.setText(line);
+                        annotatedDocument.setId(i);
+                        annotatedDocument.setSentences(sentences);
+                        OntModel subModel = constructOntModel(ontModel, annotatedDocument);
+
+                        System.out.println("document " + i + " of " + lines.size() + " is added to ontology ");
+
+                        mainModel.add(subModel);
+                    }
                 }
             }
         } catch (FileNotFoundException ex) {
@@ -559,23 +561,23 @@ public class Main {
         }
     }
 
-    public static void analyseTriples(String inputFileName) {
-        try {
+    public static void analyseTriples(String inputFileName, String path) {
+        
             // create an empty model
             Model model = ModelFactory.createDefaultModel();
-            
+
             // use the FileManager to find the input file
             InputStream in = FileManager.get().open(inputFileName);
             if (in == null) {
                 throw new IllegalArgumentException(
                         "File: " + inputFileName + " not found");
             }
-            
+
             // read the RDF/XML file
             model.read(in, "RDF/XML");
-            
+
             String queryString = "";
-            
+
             queryString = "" + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n "
                     + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
                     + "PREFIX smlk: <http://ns.inria.fr/smilk/elements/1.0/>\n"
@@ -611,43 +613,100 @@ public class Main {
                     + "}\n"
                     + "GROUP BY  ?sentence ?triple  ?subjectform ?subject_Type   ?objectForm ?object_Type  ?subjectPos  ?objectPos  "
                     + "";
-            
+
             Query query = QueryFactory.create(queryString);
             QueryExecution qexec = QueryExecutionFactory.create(query, model);
             ResultSet results = qexec.execSelect();
-           // ResultSetFormatter.out(System.out, results, query);
-            
-            
+            // ResultSetFormatter.out(System.out, results, query);
+
             //convert sparql query results into string array
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            PrintStream ps = new PrintStream(baos);
-            ResultSetFormatter.out(ps, results, query);
-            String queryOutput = new String(baos.toByteArray(), "UTF-8");
-            
-            System.out.println(queryOutput);
-//        try {
+//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//            PrintStream ps = new PrintStream(baos);
+//            ResultSetFormatter.out(ps, results, query);
+//            String queryOutput = new String(baos.toByteArray(), "UTF-8");
 //
-//
-//                    
-//                    for (; results.hasNext();) {
-//                        QuerySolution soln = results.nextSolution();
-//                        
+//            System.out.println(queryOutput);
+      
+        StringBuilder output = new StringBuilder();
+        output.append("subjectform" +"\t"+ "subject_Type"+ "\t" +"objectForm"+
+                                "\t"+"object_Type"+"\t"+"relation"+"\t"+"relationposTags");
+         output.append("\n");
+         
+        try{
+                    
+                    for (; results.hasNext();) {
+                        QuerySolution soln = results.nextSolution();
+                        
 //                        RDFNode rel = soln.get("rel");
 //                        Resource r = (Resource) rel;
-// 
-//                        RDFNode cnt = soln.get("cnt");
-//                        Literal rcnt = (Literal) cnt;
-//                 
-//                        System.out.println(r.getLocalName() + " " + rcnt.getInt());
-// 
-//                    }
-//            
-//                } finally {
-//                    qexec.close();
-//                }
-        } catch (UnsupportedEncodingException ex) {
+ 
+                        
+                       
+                        RDFNode subjectform = soln.get("subjectform");
+                        Literal lsubjectform = (Literal) subjectform;
+                        output.append(lsubjectform+"\t");
+                        
+//                        RDFNode subjectPos = soln.get("subjectPos");
+//                        Literal lsubjectPos = (Literal) subjectPos;
+//                        output.append(lsubjectPos+"\t");
+//                         
+                        RDFNode subject_Type = soln.get("subject_Type");
+                        Literal lsubject_Type = (Literal) subject_Type;
+                         output.append(lsubject_Type+"\t");
+                        
+                        RDFNode objectForm = soln.get("objectForm");
+                        Literal lobjectForm = (Literal) objectForm;
+                        output.append(lobjectForm+"\t");
+                        
+//                        RDFNode objectPos = soln.get("objectPos");
+//                        Literal lobjectPos = (Literal) objectPos;
+//                        output.append(lobjectPos+"\t");
+                        
+                         RDFNode object_Type = soln.get("object_Type");
+                        Literal lobject_Type = (Literal) object_Type;
+                         output.append(lobject_Type+"\t");
+                        
+                         RDFNode relation = soln.get("relation");
+                        Literal lrelation = (Literal) relation;
+                        output.append(lrelation+"\t");
+                        
+                          RDFNode relationposTags = soln.get("relationposTags");
+                        Literal lrelationposTags = (Literal) relationposTags;
+                        output.append(lrelationposTags+"\t");
+                      output.append("\n");
+                        
+ 
+                    }
+            
+                } finally {
+                    qexec.close();
+                }
+        
+        
+            File file = new File(path);
+ 
+            // if file doesnt exists, then create it
+           if (!file.exists()) {
+            try {
+                    file.createNewFile();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+ 
+            FileWriter fw;
+         try {
+            fw = new FileWriter(file.getAbsoluteFile());
+        
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(output.toString());
+            bw.close();
+                
+        } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+          
+
     }
 
     public static void query(Model model) {
@@ -938,25 +997,33 @@ public class Main {
         listFileUtil.listFilesFromDirector(folderName);
         List<String> files = listFileUtil.files;
         List<String> lines = new LinkedList<>();
-       
-        int i=0;
+        openNLP opennlp = new openNLP();
+
+        int i = 0;
         for (String file : files) {
-            
-            //System.out.println("Processing file #: "+ i + " of:  "+ files.size());
+
+            System.out.println("Processing file #: "+ file +": "+ i);
             i++;
-            
+
             try {
-                
+
                 BufferedReader fileReader = null;
 
                 String line = "";
                 //Create the file reader
-                fileReader = new BufferedReader(new FileReader(folderName+"/"+file));
+                fileReader = new BufferedReader(new FileReader(folderName + "/" + file));
                 while ((line = fileReader.readLine()) != null) {
-                    if (line.trim().length() > 1) { 
-                        lines.add(line);
-                    }
+                    if (line.trim().length() > 1) {
+                        String[] sentences = opennlp.senenceSegmentation(line);
+                        if (sentences != null) {
+                            for (String sent : sentences) {
+                                if (sent.length() > 0) {
+                                    lines.add(sent);
+                                }
+                            }
+                        }
 
+                    }
                 }
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
